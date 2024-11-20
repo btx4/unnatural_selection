@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2xobsdkhdh30"]
+
+[ext_resource type="Texture2D" uid="uid://b61fw50oklfd0" path="res://New Piskel (7).png" id="1_65i8y"]
+[ext_resource type="Script" path="res://spit.gd" id="1_tqcw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4ejp"]
+size = Vector2(31.9999, 22.0001)
+
+[sub_resource type="Animation" id="Animation_p5arr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gxsxr"]
+resource_name = "spit"
+length = 0.500006
+loop_mode = 1
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_op728"]
+_data = {
+"RESET": SubResource("Animation_p5arr"),
+"spit": SubResource("Animation_gxsxr")
+}
+
+[node name="Spit" type="Area2D"]
+rotation = -3.14159
+script = ExtResource("1_tqcw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a4ejp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4.30804, 4.30804)
+texture = ExtResource("1_65i8y")
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_op728")
+}
+autoplay = "spit"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

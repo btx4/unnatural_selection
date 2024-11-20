@@ -1,0 +1,296 @@
+[gd_scene load_steps=23 format=3 uid="uid://dmo7x0f38w0m2"]
+
+[ext_resource type="Script" path="res://level_1.gd" id="1_6tp4m"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_8a2f8"]
+[ext_resource type="Script" path="res://rigid_body_2d.gd" id="1_asjph"]
+[ext_resource type="Texture2D" uid="uid://dyxgqvgrllc5f" path="res://New Piskel (6).png" id="1_or6tu"]
+[ext_resource type="Texture2D" uid="uid://cocrsj50q3njd" path="res://Human_chest.png" id="3_7pe02"]
+[ext_resource type="Texture2D" uid="uid://b3eujdsntmlag" path="res://Kangaro (1) (1).png" id="5_jrnld"]
+[ext_resource type="Script" path="res://head.gd" id="7_laat8"]
+[ext_resource type="Texture2D" uid="uid://cvsx5tbqf6h2d" path="res://Alpaca_Sput.png" id="7_pb7kw"]
+[ext_resource type="Texture2D" uid="uid://bxiroqh1afxij" path="res://GiraffeCentered.png" id="10_4vxnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rujvs"]
+size = Vector2(1383.5, 69)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_epv3n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_phs7a"]
+radius = 39.0
+height = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu0ed"]
+size = Vector2(126, 85)
+
+[sub_resource type="Animation" id="Animation_1ygdj"]
+resource_name = "KangarooJump"
+length = 1.33334
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RooLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.25, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 13]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_jump"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8t5op"]
+resource_name = "Kangaroo_Idle"
+length = 0.0833417
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RooLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eunry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RooLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ue2kn"]
+_data = {
+"KangarooJump": SubResource("Animation_1ygdj"),
+"Kangaroo_Idle": SubResource("Animation_8t5op"),
+"RESET": SubResource("Animation_eunry")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2teb8"]
+radius = 18.0
+height = 92.0
+
+[sub_resource type="Animation" id="Animation_floxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Freak One/Head/CollisionShape2D2/LlamaHead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Freak One/Head/CollisionShape2D2/Giraffe:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g5nal"]
+resource_name = "alpaca_spit"
+length = 1.33334
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Freak One/Head/CollisionShape2D2/LlamaHead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0, 1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Freak One/Head")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.08333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spit_fire"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_025nm"]
+resource_name = "giraffe_attack"
+length = 1.66668
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Freak One/Head/CollisionShape2D2/Giraffe:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ms8"]
+_data = {
+"RESET": SubResource("Animation_floxv"),
+"alpaca_spit": SubResource("Animation_g5nal"),
+"giraffe_attack": SubResource("Animation_025nm")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6tp4m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(577, 639)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -28)
+shape = SubResource("RectangleShape2D_rujvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-0.25, -27.75)
+scale = Vector2(1294.5, 62.5)
+texture = SubResource("CanvasTexture_epv3n")
+
+[node name="Freak One" type="Node2D" parent="."]
+position = Vector2(1084, 262)
+
+[node name="CHEST" type="RigidBody2D" parent="Freak One"]
+position = Vector2(0, 2)
+script = ExtResource("1_asjph")
+
+[node name="Human_Collision" type="CollisionShape2D" parent="Freak One/CHEST"]
+shape = SubResource("CapsuleShape2D_phs7a")
+
+[node name="HumanChest" type="Sprite2D" parent="Freak One/CHEST/Human_Collision"]
+texture_filter = 1
+rotation = -3.14159
+scale = Vector2(3.12636, -2.86056)
+texture = ExtResource("3_7pe02")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Freak One/CHEST"]
+position = Vector2(-1, -13)
+node_a = NodePath("..")
+node_b = NodePath("../../Head")
+softness = 1.9
+angular_limit_enabled = true
+angular_limit_lower = 0.598648
+angular_limit_upper = -0.575959
+
+[node name="Legs" type="CharacterBody2D" parent="Freak One"]
+position = Vector2(0, 57)
+script = ExtResource("1_8a2f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Freak One/Legs"]
+position = Vector2(1, 6.5)
+shape = SubResource("RectangleShape2D_fu0ed")
+
+[node name="RooLegs" type="Sprite2D" parent="Freak One/Legs/CollisionShape2D"]
+visible = false
+texture_filter = 1
+position = Vector2(-3, -3)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("5_jrnld")
+hframes = 4
+vframes = 4
+
+[node name="CarLegs" type="Sprite2D" parent="Freak One/Legs/CollisionShape2D"]
+texture_filter = 1
+position = Vector2(0, -13)
+scale = Vector2(3.75, 3.53125)
+texture = ExtResource("1_or6tu")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Freak One/Legs/CollisionShape2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ue2kn")
+}
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Freak One/Legs"]
+position = Vector2(0, -13)
+node_a = NodePath("../../CHEST")
+node_b = NodePath("..")
+
+[node name="Head" type="RigidBody2D" parent="Freak One"]
+position = Vector2(-1084, -262)
+collision_layer = 2
+script = ExtResource("7_laat8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Freak One/Head"]
+position = Vector2(1080, 220)
+shape = SubResource("CapsuleShape2D_2teb8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Freak One/Head/CollisionShape2D2"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_f1ms8")
+}
+autoplay = "giraffe_attack"
+
+[node name="LlamaHead" type="Sprite2D" parent="Freak One/Head/CollisionShape2D2"]
+texture_filter = 1
+position = Vector2(-5, -28)
+rotation = -3.14159
+scale = Vector2(3.62434, -3.3162)
+texture = ExtResource("7_pb7kw")
+hframes = 4
+vframes = 4
+
+[node name="LlamaMouth" type="Node2D" parent="Freak One/Head/CollisionShape2D2"]
+position = Vector2(-38, -24)
+
+[node name="Giraffe" type="Sprite2D" parent="Freak One/Head/CollisionShape2D2"]
+visible = false
+texture_filter = 1
+position = Vector2(3, -156)
+scale = Vector2(1.96703, 1.96703)
+texture = ExtResource("10_4vxnp")
+hframes = 4
+vframes = 5
+
+[node name="ENEMY" type="Node2D" parent="." groups=["enemy"]]
+position = Vector2(915, 194)

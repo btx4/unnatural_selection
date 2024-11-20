@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmo7x0f38w0m2"]
+
+[ext_resource type="Script" path="res://level_1.gd" id="1_6tp4m"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_8a2f8"]
+[ext_resource type="Script" path="res://rigid_body_2d.gd" id="1_asjph"]
+[ext_resource type="Texture2D" uid="uid://dyxgqvgrllc5f" path="res://New Piskel (6).png" id="1_or6tu"]
+[ext_resource type="Texture2D" uid="uid://cocrsj50q3njd" path="res://Human_chest.png" id="3_7pe02"]
+[ext_resource type="Script" path="res://rigid_body_2d_2.gd" id="6_v467w"]
+[ext_resource type="Texture2D" uid="uid://cvsx5tbqf6h2d" path="res://Alpaca_Sput.png" id="7_pb7kw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rujvs"]
+size = Vector2(1383.5, 69)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x72cn"]
+
+[sub_resource type="Animation" id="Animation_bi3p0"]
+resource_name = "alpaca_Spit"
+length = 1.33334
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0]
+}
+
+[sub_resource type="Animation" id="Animation_wvdap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djj4c"]
+_data = {
+"RESET": SubResource("Animation_wvdap"),
+"alpaca_Spit": SubResource("Animation_bi3p0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iic2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu0ed"]
+size = Vector2(54, 38)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6tp4m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(577, 639)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -28)
+shape = SubResource("RectangleShape2D_rujvs")
+
+[node name="HEAD" type="RigidBody2D" parent="."]
+position = Vector2(316, 95)
+script = ExtResource("6_v467w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HEAD"]
+position = Vector2(3, 41)
+shape = SubResource("CircleShape2D_x72cn")
+
+[node name="Sprite2D" type="Sprite2D" parent="HEAD/CollisionShape2D"]
+texture_filter = 1
+position = Vector2(-5, -45)
+rotation = -3.14159
+scale = Vector2(3.62434, -3.3162)
+texture = ExtResource("7_pb7kw")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HEAD"]
+libraries = {
+"": SubResource("AnimationLibrary_djj4c")
+}
+
+[node name="CHEST" type="RigidBody2D" parent="."]
+position = Vector2(314, 165)
+script = ExtResource("1_asjph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CHEST"]
+position = Vector2(2, -1)
+shape = SubResource("CircleShape2D_iic2u")
+
+[node name="Sprite2D" type="Sprite2D" parent="CHEST/CollisionShape2D"]
+texture_filter = 1
+position = Vector2(5, -6)
+rotation = -3.14159
+scale = Vector2(3.12636, -2.86056)
+texture = ExtResource("3_7pe02")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="CHEST"]
+node_a = NodePath("..")
+node_b = NodePath("../../HEAD")
+length = 1.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(314, 211)
+script = ExtResource("1_8a2f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_fu0ed")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D"]
+texture_filter = 1
+position = Vector2(0, -13)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("1_or6tu")
+hframes = 2
+vframes = 2
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="CharacterBody2D"]
+position = Vector2(-10, -23)
+node_a = NodePath("../../CHEST")
+node_b = NodePath("..")
+length = 3.0
+rest_length = 2.0
+stiffness = 64.0
+damping = 16.0
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="CharacterBody2D"]
+position = Vector2(10, -23)
+node_a = NodePath("../../CHEST")
+node_b = NodePath("..")
+length = 3.0
+rest_length = 2.0
+stiffness = 64.0
+damping = 16.0
