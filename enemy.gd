@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_parent().get_node("HealthBarRight").set_health(currentHealth)
+	get_parent().get_node("Camera2D/HealthBarRight").set_health(currentHealth)
 	if(currentHealth <= 0 and dead == false):
 		die()
 		

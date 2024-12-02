@@ -1,0 +1,765 @@
+[gd_scene load_steps=41 format=3 uid="uid://f1g5usan2pfl"]
+
+[ext_resource type="Script" path="res://freak_one.gd" id="1_edlgb"]
+[ext_resource type="Script" path="res://rigid_body_2d.gd" id="2_fq7x5"]
+[ext_resource type="Texture2D" uid="uid://cocrsj50q3njd" path="res://Human_chest.png" id="3_740ef"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="4_n6doh"]
+[ext_resource type="Texture2D" uid="uid://bu1hthihk64rc" path="res://BirdWings.png" id="4_trx0o"]
+[ext_resource type="Texture2D" uid="uid://b3eujdsntmlag" path="res://Kangaro (1) (1).png" id="5_1cd3y"]
+[ext_resource type="Texture2D" uid="uid://dyxgqvgrllc5f" path="res://New Piskel (6).png" id="6_ofxn2"]
+[ext_resource type="Texture2D" uid="uid://xw5plqu5dn8g" path="res://crabwalk.png" id="7_sk5bc"]
+[ext_resource type="Texture2D" uid="uid://xm3xwcs7id80" path="res://BullCharge (1).png" id="8_soruw"]
+[ext_resource type="Texture2D" uid="uid://bx1srau6tgwtm" path="res://BullChargeUp (1).png" id="9_dbnib"]
+[ext_resource type="Texture2D" uid="uid://djowfelc1lklw" path="res://DustCloud.png" id="10_xiwyp"]
+[ext_resource type="Script" path="res://bull_charge_attack.gd" id="11_p7fxv"]
+[ext_resource type="AudioStream" uid="uid://bertsitsib6g8" path="res://audios/boing.mp3" id="12_upxll"]
+[ext_resource type="AudioStream" uid="uid://dsok433qg7upo" path="res://audios/scrape.mp3" id="13_wheam"]
+[ext_resource type="Script" path="res://head.gd" id="14_3sjtw"]
+[ext_resource type="Texture2D" uid="uid://bv1bl1aawwmp7" path="res://Alpaca_Sput.png" id="15_82yrn"]
+[ext_resource type="Texture2D" uid="uid://bxiroqh1afxij" path="res://GiraffeCentered.png" id="16_vl83o"]
+[ext_resource type="Script" path="res://giraffe_attack_l.gd" id="17_nwskj"]
+[ext_resource type="Script" path="res://giraffe_attack_r.gd" id="18_0mtdb"]
+[ext_resource type="AudioStream" uid="uid://xqc2h10g0t6l" path="res://audios/GatherAndSpit.mp3" id="19_h4oal"]
+[ext_resource type="AudioStream" uid="uid://cw05sphug8pqv" path="res://audios/swing.mp3" id="20_cl01o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_phs7a"]
+radius = 39.0
+height = 100.0
+
+[sub_resource type="Animation" id="Animation_vmq2a"]
+resource_name = "birdFlap"
+length = 0.666675
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BirdChest:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"flap"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2fw3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BirdChest:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7s3nt"]
+_data = {
+"RESET": SubResource("Animation_2fw3x"),
+"birdFlap": SubResource("Animation_vmq2a")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu0ed"]
+size = Vector2(126, 85)
+
+[sub_resource type="Animation" id="Animation_gb101"]
+resource_name = "BullCharge"
+length = 0.416675
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BullCharge:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BullChargeAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"attack"
+}, {
+"args": [],
+"method": &"attack"
+}, {
+"args": [],
+"method": &"attack"
+}, {
+"args": [],
+"method": &"attack"
+}, {
+"args": [],
+"method": &"attack"
+}, {
+"args": [],
+"method": &"attack"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.416667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"charge"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iie2f"]
+resource_name = "BullChargeUp"
+length = 2.50001
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BullChargeUp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333, 0.916666, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333, 1.66667, 1.75, 1.83333, 1.91667, 2, 2.08333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"chargeReset"
+}, {
+"args": [],
+"method": &"charge"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BullChargeUp/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.75, 1.83333, 1.91667, 2, 2.08333, 2.16667, 2.25, 2.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Scrape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 1, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_winnw"]
+resource_name = "Crabwalk"
+length = 0.916675
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CrabLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.365345, 0.416667, 0.5, 0.583333, 0.664928, 0.767225, 0.840294, 0.916666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}, {
+"args": [],
+"method": &"crabRandom"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1ygdj"]
+resource_name = "KangarooJump"
+length = 1.33334
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RooLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.25, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 13]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_jump"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Boing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8t5op"]
+resource_name = "Kangaroo_Idle"
+length = 0.0833417
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RooLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eunry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RooLegs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CrabLegs:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BullCharge:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BullChargeUp:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BullChargeUp/Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ue2kn"]
+resource_local_to_scene = true
+_data = {
+"BullCharge": SubResource("Animation_gb101"),
+"BullChargeUp": SubResource("Animation_iie2f"),
+"Crabwalk": SubResource("Animation_winnw"),
+"KangarooJump": SubResource("Animation_1ygdj"),
+"Kangaroo_Idle": SubResource("Animation_8t5op"),
+"RESET": SubResource("Animation_eunry")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyecu"]
+size = Vector2(180, 63)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2teb8"]
+radius = 18.0
+height = 86.0
+
+[sub_resource type="Animation" id="Animation_floxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LlamaHead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Giraffe:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g5nal"]
+resource_name = "alpaca_spit"
+length = 1.33334
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LlamaHead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333, 0.916666, 1, 1.08333, 1.16667, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0, 1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.08333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spit_fire"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Spit")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_025nm"]
+resource_name = "giraffe_attack"
+length = 1.66668
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Giraffe:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333, 0.916666, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.08333, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"giraffeAttack"
+}, {
+"args": [],
+"method": &"endGiraffeAttack"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Swing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ms8"]
+_data = {
+"RESET": SubResource("Animation_floxv"),
+"alpaca_spit": SubResource("Animation_g5nal"),
+"giraffe_attack": SubResource("Animation_025nm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lpkr"]
+size = Vector2(213.822, 160.619)
+
+[node name="Freak One" type="Node2D"]
+position = Vector2(122, 292)
+script = ExtResource("1_edlgb")
+
+[node name="CHEST" type="RigidBody2D" parent="."]
+position = Vector2(0, 2)
+script = ExtResource("2_fq7x5")
+
+[node name="Human_Collision" type="CollisionShape2D" parent="CHEST"]
+shape = SubResource("CapsuleShape2D_phs7a")
+
+[node name="HumanChest" type="Sprite2D" parent="CHEST/Human_Collision"]
+texture_filter = 1
+rotation = -3.14159
+scale = Vector2(3.12636, -2.86056)
+texture = ExtResource("3_740ef")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEST/Human_Collision"]
+libraries = {
+"": SubResource("AnimationLibrary_7s3nt")
+}
+
+[node name="BirdChest" type="Sprite2D" parent="CHEST/Human_Collision"]
+texture_filter = 1
+scale = Vector2(3.126, 2.861)
+texture = ExtResource("4_trx0o")
+hframes = 2
+vframes = 4
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CHEST"]
+position = Vector2(0, -25)
+node_a = NodePath("../../Head")
+node_b = NodePath("..")
+bias = 0.041
+angular_limit_upper = -0.575959
+
+[node name="Legs" type="CharacterBody2D" parent="." groups=["legs"]]
+position = Vector2(0, 57)
+script = ExtResource("4_n6doh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Legs"]
+position = Vector2(1, 6.5)
+shape = SubResource("RectangleShape2D_fu0ed")
+
+[node name="RooLegs" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+visible = false
+texture_filter = 1
+position = Vector2(-3, -3)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("5_1cd3y")
+hframes = 4
+vframes = 4
+
+[node name="CarLegs" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+visible = false
+texture_filter = 1
+position = Vector2(0, -13)
+scale = Vector2(3.75, 3.53125)
+texture = ExtResource("6_ofxn2")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Legs/CollisionShape2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_ue2kn")
+}
+autoplay = "BullCharge"
+
+[node name="CrabLegs" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+visible = false
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("7_sk5bc")
+hframes = 2
+vframes = 6
+
+[node name="BullCharge" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+visible = false
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(-4.125, 4.125)
+texture = ExtResource("8_soruw")
+hframes = 2
+vframes = 3
+
+[node name="BullChargeUp" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+texture_filter = 1
+position = Vector2(8, -3.5)
+scale = Vector2(-4.125, 4.125)
+texture = ExtResource("9_dbnib")
+hframes = 2
+vframes = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs/CollisionShape2D2/BullChargeUp"]
+position = Vector2(4.12121, 7.87879)
+texture = ExtResource("10_xiwyp")
+hframes = 3
+vframes = 3
+frame = 8
+
+[node name="BullChargeAttack" type="Area2D" parent="Legs/CollisionShape2D2"]
+script = ExtResource("11_p7fxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Legs/CollisionShape2D2/BullChargeAttack"]
+shape = SubResource("RectangleShape2D_dyecu")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Legs"]
+position = Vector2(0, -13)
+node_a = NodePath("../../CHEST")
+node_b = NodePath("..")
+
+[node name="Knock" type="Timer" parent="Legs"]
+wait_time = 0.5
+
+[node name="Boing" type="AudioStreamPlayer2D" parent="Legs"]
+stream = ExtResource("12_upxll")
+
+[node name="Scrape" type="AudioStreamPlayer2D" parent="Legs"]
+stream = ExtResource("13_wheam")
+
+[node name="Identifier" type="Control" parent="Legs"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -27.0
+offset_top = -223.0
+offset_right = 13.0
+offset_bottom = -183.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Legs/Identifier"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.0
+offset_right = 43.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player Two
+"
+text_direction = 1
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(-2, -34)
+collision_layer = 2
+script = ExtResource("14_3sjtw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Head"]
+position = Vector2(-2, -8)
+shape = SubResource("CapsuleShape2D_2teb8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/CollisionShape2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_f1ms8")
+}
+autoplay = "giraffe_attack"
+
+[node name="LlamaHead" type="Sprite2D" parent="Head/CollisionShape2D2"]
+visible = false
+texture_filter = 1
+position = Vector2(4, -32)
+rotation = -3.14159
+scale = Vector2(3.316, -3.316)
+texture = ExtResource("15_82yrn")
+hframes = 4
+vframes = 4
+
+[node name="LlamaMouth" type="Node2D" parent="Head/CollisionShape2D2"]
+visible = false
+position = Vector2(-38, -24)
+
+[node name="Giraffe" type="Sprite2D" parent="Head/CollisionShape2D2"]
+texture_filter = 1
+position = Vector2(3, -156)
+rotation = -0.00109695
+scale = Vector2(-1.97, 1.967)
+texture = ExtResource("16_vl83o")
+hframes = 4
+vframes = 5
+
+[node name="GiraffeAttackL" type="Area2D" parent="Head/CollisionShape2D2"]
+position = Vector2(-3, 0)
+script = ExtResource("17_nwskj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/CollisionShape2D2/GiraffeAttackL"]
+position = Vector2(-50.3533, -42.8672)
+rotation = -0.431619
+shape = SubResource("RectangleShape2D_5lpkr")
+
+[node name="GiraffeAttackR" type="Area2D" parent="Head/CollisionShape2D2"]
+position = Vector2(-1, 8)
+script = ExtResource("18_0mtdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/CollisionShape2D2/GiraffeAttackR"]
+position = Vector2(44, -56)
+rotation = -2.78781
+scale = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_5lpkr")
+
+[node name="Spit" type="AudioStreamPlayer2D" parent="Head"]
+stream = ExtResource("19_h4oal")
+
+[node name="Swing" type="AudioStreamPlayer2D" parent="Head"]
+stream = ExtResource("20_cl01o")
+
+[connection signal="timeout" from="Legs/Knock" to="Legs" method="_on_knock_timeout"]
+[connection signal="body_entered" from="Head/CollisionShape2D2/GiraffeAttackR" to="Head/CollisionShape2D2/GiraffeAttackR" method="_on_body_entered"]

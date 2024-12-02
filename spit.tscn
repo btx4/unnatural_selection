@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2xobsdkhdh30"]
+[gd_scene load_steps=9 format=3 uid="uid://cft3fsmttla74"]
 
 [ext_resource type="Texture2D" uid="uid://b61fw50oklfd0" path="res://New Piskel (7).png" id="1_65i8y"]
 [ext_resource type="Script" path="res://spit.gd" id="1_tqcw6"]
+[ext_resource type="Texture2D" uid="uid://v7uq4gbca0f3" path="res://Hit.png" id="3_m5r77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4ejp"]
 size = Vector2(31.9999, 22.0001)
@@ -19,6 +20,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_gvt4u"]
+resource_name = "hit"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_gxsxr"]
@@ -42,6 +71,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_op728"]
 _data = {
 "RESET": SubResource("Animation_p5arr"),
+"hit": SubResource("Animation_gvt4u"),
 "spit": SubResource("Animation_gxsxr")
 }
 
@@ -65,5 +95,14 @@ libraries = {
 }
 autoplay = "spit"
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3.71774, 3.71774)
+texture = ExtResource("3_m5r77")
+hframes = 2
+vframes = 2
+frame = 3
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -39,18 +39,21 @@ func _spit_fire():
 	enemyposition = get_parent().get_parent().get_node("Freak One/CHEST").global_position
 	AttackDirection = (enemyposition - $CollisionShape2D2/LlamaMouth.global_position).normalized()
 
-	instance.fire(AttackDirection, 200,1)
+	instance.fire(AttackDirection, 350,1)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("eHeadPlusOne"):
-		Head_Type = Head_Type + 1
-		Head_Type = Head_Type % All_Heads
+	if event.is_action_pressed("eHeadOne"):
+		Head_Type = 0
+	if event.is_action_pressed("eHeadTwo"):
+		Head_Type = 1
+		
 	if Head_Type == 0:
 		$CollisionShape2D2/LlamaHead.visible = true
 		$CollisionShape2D2/Giraffe.visible = false
 	elif Head_Type == 1:
 		$CollisionShape2D2/LlamaHead.visible = false
 		$CollisionShape2D2/Giraffe.visible = true
+		
 
 
 func giraffeAttack():
@@ -68,9 +71,7 @@ func endGiraffeAttack():
 		$CollisionShape2D2/GiraffeAttackL.isActive = false
 
 func hit(damage: int):
-	print("Hit")
-	get_parent().currentHealth -= damage
-	
+	get_parent().get_node("Legs").hit(damage)
 
 func knockback():
 	print("CHESHIT")

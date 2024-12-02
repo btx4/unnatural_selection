@@ -1,6 +1,9 @@
 extends RigidBody2D
 var threshold = 70
 var isDead = false
+var chest_type = 0
+var num_chests = 2
+var pchest_type
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	gravity_scale = -1
@@ -22,9 +25,44 @@ func _process(delta: float) -> void:
 		"""
 
 func hit(damage: int):
-	print("Hit")
-	get_parent().currentHealth -= damage
+	get_parent().get_node("Legs").hit(damage)
+	
 	
 func knockback():
-	print("CHESHIT")
 	get_parent().get_node("Legs").knockback()
+	
+func _input(event: InputEvent) -> void:
+	if is_in_group("gHitbox"):
+		if event.is_action_pressed("chestOne"):
+			chest_type = 0
+		elif event.is_action_pressed("chestTwo"):
+			chest_type = 1
+		elif event.is_action_pressed("chestThree"):
+			chest_type = 2
+	else:
+		if event.is_action_pressed("eChestOne"):
+			chest_type = 0
+		elif event.is_action_pressed("eChestTwo"):
+			chest_type = 1
+		elif event.is_action_pressed("eChestThree"):
+			chest_type = 2
+	if chest_type == 0 and chest_type != pchest_type:
+		$Human_Collision/HumanChest.visible = true
+		$Human_Collision/AnimationPlayer.stop()
+		$Human_Collision/BirdChest.visible = false
+	elif chest_type == 1 and chest_type != pchest_type:
+		$Human_Collision/HumanChest.visible = false
+		$Human_Collision/BirdChest.visible = true
+		$Human_Collision/AnimationPlayer.play("birdFlap")
+	elif chest_type == 2 and chest_type != pchest_type:
+		$Human_Collision/HumanChest.visible = false
+		$Human_Collision/AnimationPlayer.stop()
+		$Human_Collision/BirdChest.visible = false
+	pchest_type = chest_type
+
+var maxFlaps = 10
+func flap():
+	maxFlaps -=1
+	if maxFlaps > 0:
+		get_parent().get_node("Legs").velocity.y = -400
+	

@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 var bodies
 func attack():
 	bodies = get_overlapping_bodies()
+	$CollisionShape2D/ColorRect.visible = true
 	for body in bodies:
 		if body.is_in_group("gHitbox"):
 			print("Success")	
@@ -20,5 +21,6 @@ func attack():
 			break
 		else: 
 			print("failure")
+	$CollisionShape2D/ColorRect.visible = false
 	
 	pass

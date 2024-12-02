@@ -9,9 +9,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_parent().get_node("HealthBarLeft").set_health(currentHealth)
-	if currentHealth <= 0 and dead == false:
-		die()
+	if is_in_group("good_guy"):
+		get_parent().get_node("Camera2D/HealthBarLeft").set_health(currentHealth)
+		if currentHealth <= 0 and dead == false:
+			die()
+	else :
+		get_parent().get_node("Camera2D/HealthBarRight").set_health(currentHealth)
+		if currentHealth <= 0 and dead == false:
+			die()
 	pass
 
 
@@ -25,4 +30,5 @@ func die():
 	$Head/CollisionShape2D2/AnimationPlayer.stop()
 	$CHEST.gravity_scale = 1
 	$Head.gravity_scale = 1
+	get_parent().get_node("Camera2D").changeVis()
 	dead = true

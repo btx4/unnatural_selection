@@ -21,11 +21,22 @@ func _on_body_entered(body: Node2D) -> void:
 	if source == 0:
 		if body.is_in_group("eHitbox"):
 			body.hit(3)
-			queue_free()
+			$AnimationPlayer.play("hit")
+			$Sprite2D.queue_free()
+			$CollisionShape2D.queue_free()
 			print(body)
 	else:
 		if body.is_in_group("gHitbox"):
 			body.hit(3)
-			queue_free()
+			$AnimationPlayer.play("hit")
+			$Sprite2D.queue_free()
+			$CollisionShape2D.queue_free()
 			print(body)
+	pass # Replace with function body.
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "hit":
+		queue_free()
+	velocity = Vector2(0,0)
 	pass # Replace with function body.

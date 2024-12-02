@@ -3,34 +3,41 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -800.0
-var Leg_Type = 1
+var Leg_Type = 0
 var All_Legs = 3
 var faceL = false
 var isDead = false
 var knockback_State = false
 var test = true
-var KNOCKBACK = 700
+var KNOCKBACK = 1000
+var charging = false
+var prevFacing = faceL
 
 func _physics_process(delta: float) -> void:
-	if(get_tree().get_nodes_in_group("gHitbox")[0].global_position.x < global_position.x - 15):
-		if faceL == false:
-			print("FLIP")
-			$CollisionShape2D/RooLegs.scale.x = -$CollisionShape2D/RooLegs.scale.x
-			faceL = true
-	elif (get_tree().get_nodes_in_group("gHitbox")[0].global_position.x > global_position.x + 15):
-		if faceL == true:
-			$CollisionShape2D/RooLegs.scale.x = -$CollisionShape2D/RooLegs.scale.x
-			print("FLIP")
-			faceL = false
-	
-	
+	prevFacing = faceL
 	if !isDead and !knockback_State:
 		if(get_tree().get_nodes_in_group("gHitbox")[0].global_position.x < global_position.x and is_on_floor()):
-			if(Leg_Type!= 2):
+			if faceL == false:
+				$CollisionShape2D/RooLegs.scale.x = -$CollisionShape2D/RooLegs.scale.x 
+				$CollisionShape2D/BullCharge.scale.x = -$CollisionShape2D/BullCharge.scale.x 
+				$CollisionShape2D/BullChargeUp.scale.x = -$CollisionShape2D/BullChargeUp.scale.x 
+				$CollisionShape2D/RooLegs.position.x += 15
+				print("FLIP")
+				faceL = true
+			if(Leg_Type== 0):
 				velocity.x = -1 * SPEED
-		elif is_on_floor() :
-			if(Leg_Type!= 2):
+		elif is_on_floor():
+			if(Leg_Type == 0):
 				velocity.x = SPEED
+			if faceL == true:
+				print("FLIP")
+				$CollisionShape2D/RooLegs.scale.x = -$CollisionShape2D/RooLegs.scale.x
+				$CollisionShape2D/BullCharge.scale.x = -$CollisionShape2D/BullCharge.scale.x 
+				$CollisionShape2D/BullChargeUp.scale.x = -$CollisionShape2D/BullChargeUp.scale.x 
+				$CollisionShape2D/RooLegs.position.x -= 15
+				faceL = false
+			
+		
 		# Handle jump.
 		if is_on_floor():
 			if(Leg_Type == 0):
@@ -38,37 +45,65 @@ func _physics_process(delta: float) -> void:
 				$CollisionShape2D/AnimationPlayer.play("KangarooJump")
 			if(Leg_Type == 2):
 				$CollisionShape2D/AnimationPlayer.play("Crabwalk")
+	if prevFacing != faceL and Leg_Type ==1:
+		if is_on_floor():
+			velocity.x = lerp(velocity.x, 0.0, 0.25)
+			$CollisionShape2D/AnimationPlayer.play("BullChargeUp")
+		$CollisionShape2D/BullCharge.visible = false
+		$CollisionShape2D/BullChargeUp.visible = true
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
 
+var pLeg_Type
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("eLegsPlusOne"):
-		Leg_Type = Leg_Type + 1
-		Leg_Type = Leg_Type % All_Legs
-		print("LEGTYPE: ", Leg_Type)
-	if Leg_Type == 0:
-		$CollisionShape2D/CarLegs.visible = false
+	if event.is_action_pressed("eLegsOne"):
+		Leg_Type = 0
+	elif event.is_action_pressed("eLegsTwo"):
+		Leg_Type = 1
+	elif event.is_action_pressed("eLegsThree"):
+		Leg_Type = 2
+	if Leg_Type == 0 and Leg_Type != pLeg_Type:
+		velocity.x = 0
+		$CollisionShape2D/BullCharge.visible = false
+		$CollisionShape2D/BullChargeUp.visible = false
 		$CollisionShape2D/RooLegs.visible = true
 		$CollisionShape2D/CrabLegs.visible = false
-	elif Leg_Type == 1:
-		$CollisionShape2D/CarLegs.visible = true
+	elif Leg_Type == 1 and Leg_Type != pLeg_Type:
+		velocity.x = 0
+		$CollisionShape2D/BullChargeUp.visible = true
+		$CollisionShape2D/AnimationPlayer.play("BullChargeUp")
+		$CollisionShape2D/BullCharge.visible = false
 		$CollisionShape2D/RooLegs.visible = false
 		$CollisionShape2D/CrabLegs.visible = false
-		$CollisionShape2D/CrabLegs.visible = false
-	elif Leg_Type == 2:
-		$CollisionShape2D/CarLegs.visible = false
+	elif Leg_Type == 2 and Leg_Type != pLeg_Type:
+		velocity.x = 0
+		$CollisionShape2D/BullCharge.visible = false
+		$CollisionShape2D/BullChargeUp.visible = false
 		$CollisionShape2D/RooLegs.visible = false
 		$CollisionShape2D/CrabLegs.visible = true
+	pLeg_Type = Leg_Type
+
 
 func _jump():
 	if(is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 
-
 func hit(damage: int):
 	print("Hit")
 	get_parent().currentHealth -= damage
+	if(damage >10):
+		freezeFrame(0.03,1)
+
+func freezeFrame(timescale, duration):
+	print("KABOOOM")
+	Engine.time_scale = timescale
+	get_parent().get_parent().start_screenshake(duration*timescale/2, 8)
+	await(get_tree().create_timer(duration*timescale).timeout)
+	Engine.time_scale = 1
 
 func knockback():
 	print("LEGSHIT")
@@ -80,17 +115,28 @@ func knockback():
 	$Knock.start(0.5)
 	knockback_State = true
 
+func charge():
+	if faceL == true:
+		velocity.x = -1200
+	else:
+		velocity.x = 1200
+	charging = true
+	$CollisionShape2D/AnimationPlayer.play("BullCharge")
+	$CollisionShape2D/BullCharge.visible = true
+	$CollisionShape2D/BullChargeUp.visible = false
+
+
 func crabRandom():
 	if !isDead and !knockback_State:
-		print("CRABRANDOM")
-		if randi() % 3 ==2:
+		if randi() % 4 ==2:
 			print("LEF")
 			$CollisionShape2D/CrabLegs.scale.x = -4.125
-			velocity.x = -1 * (SPEED * 2)
+			if(get_tree().get_nodes_in_group("gHitbox")[0].global_position.x < global_position.x):
+				velocity.x = 1 * (SPEED * 5)
 		else:
-			print("RIg")
 			$CollisionShape2D/CrabLegs.scale.x = 4.125
-			velocity.x = SPEED * 2
+			if(get_tree().get_nodes_in_group("gHitbox")[0].global_position.x > global_position.x):
+				velocity.x = -1 * (SPEED * 5)
 
 
 func _on_knock_timeout() -> void:

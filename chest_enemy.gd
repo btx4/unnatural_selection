@@ -22,8 +22,7 @@ func _process(delta: float) -> void:
 
 
 func hit(damage: int):
-	print("Hit")
-	get_parent().currentHealth -= damage
+	get_parent().get_node("Legs").hit(damage)
 	
 func knockback():
 	print("CHESHIT")
