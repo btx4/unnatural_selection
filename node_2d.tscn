@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ylobbosrysoa"]
+
+[ext_resource type="Texture2D" uid="uid://djhyt4cyctml7" path="res://New Piskel (16).png" id="1_h45mw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vn4d0"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 809.16
+initial_velocity_max = 933.84
+gravity = Vector3(0, 98, 0)
+scale_min = 0.2
+scale_max = 0.5
+
+[node name="Quills" type="Node2D"]
+
+[node name="Porcupine" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_vn4d0")
+texture = ExtResource("1_h45mw")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.72
+trail_enabled = true

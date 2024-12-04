@@ -1,8 +1,10 @@
-extends Area2D
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	global_position.y = 550
+	position.x = 150
 	pass # Replace with function body.
 
 
@@ -10,14 +12,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-
-
-func _on_body_entered(body: Node2D) -> void:
-	print("OOGA")
-	if body.is_in_group("legs"):
-		body.velocity.x = -body.velocity.x
-		print("changed")
-		pass
-	pass # Replace with function body.
 	
+func blast() -> void:
+	position.x = 150
+	$GPUParticles2D.restart()
+	$SprayR.restart()
+	$SprayR2.restart()
+	pass # Replace with function body.

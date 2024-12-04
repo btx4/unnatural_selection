@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cft3fsmttla74"]
+[gd_scene load_steps=13 format=3 uid="uid://cft3fsmttla74"]
 
 [ext_resource type="Texture2D" uid="uid://b61fw50oklfd0" path="res://New Piskel (7).png" id="1_65i8y"]
 [ext_resource type="Script" path="res://spit.gd" id="1_tqcw6"]
 [ext_resource type="Texture2D" uid="uid://v7uq4gbca0f3" path="res://Hit.png" id="3_m5r77"]
+[ext_resource type="Texture2D" uid="uid://bevvbm6yenomy" path="res://blood.png" id="4_gbhmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4ejp"]
 size = Vector2(31.9999, 22.0001)
@@ -75,6 +76,21 @@ _data = {
 "spit": SubResource("Animation_gxsxr")
 }
 
+[sub_resource type="Curve" id="Curve_7b1er"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jd05y"]
+curve = SubResource("Curve_7b1er")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5n5b"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+radial_velocity_min = 64.51
+radial_velocity_max = 397.85
+gravity = Vector3(0, 500, 0)
+scale_curve = SubResource("CurveTexture_jd05y")
+
 [node name="Spit" type="Area2D"]
 rotation = -3.14159
 script = ExtResource("1_tqcw6")
@@ -102,6 +118,16 @@ texture = ExtResource("3_m5r77")
 hframes = 2
 vframes = 2
 frame = 3
+
+[node name="Blood" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_t5n5b")
+texture = ExtResource("4_gbhmm")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

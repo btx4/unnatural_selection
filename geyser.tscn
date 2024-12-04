@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://nea7hxd1ssge"]
+
+[ext_resource type="Script" path="res://geyser.gd" id="1_832xl"]
+[ext_resource type="Texture2D" uid="uid://1pf617bbky3p" path="res://New Piskel (10).png" id="1_a87sw"]
+
+[sub_resource type="Curve" id="Curve_nwv0u"]
+_data = [Vector2(0.00666666, 0), 0.0, 8.155, 0, 0, Vector2(0.973333, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mdre1"]
+curve = SubResource("Curve_nwv0u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7sjdj"]
+direction = Vector3(1, -50, 0)
+spread = 4.0
+initial_velocity_min = 155.0
+initial_velocity_max = 155.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 32.26
+gravity = Vector3(0, 200, 0)
+scale_min = 0.1
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_mdre1")
+scale_over_velocity_max = 494.62
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+collision_use_scale = true
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="Curve" id="Curve_o104i"]
+_data = [Vector2(0.293333, 1), 0.0, 0.0, 0, 0, Vector2(0.686667, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_251vo"]
+curve = SubResource("Curve_o104i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nyhr6"]
+particle_flag_disable_z = true
+spread = 20.0
+flatness = 1.0
+initial_velocity_min = 306.45
+initial_velocity_max = 419.36
+gravity = Vector3(0, 200, 0)
+radial_accel_min = 93.55
+radial_accel_max = 100.0
+scale_curve = SubResource("CurveTexture_251vo")
+
+[node name="geyser" type="Node2D"]
+position = Vector2(138, 74)
+script = ExtResource("1_832xl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.74331, 1.74331)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_7sjdj")
+texture = ExtResource("1_a87sw")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+trail_lifetime = 0.6
+
+[node name="SprayR2" type="GPUParticles2D" parent="."]
+position = Vector2(0, -24)
+rotation = 3.14159
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_nyhr6")
+texture = ExtResource("1_a87sw")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="SprayR" type="GPUParticles2D" parent="."]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_nyhr6")
+texture = ExtResource("1_a87sw")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

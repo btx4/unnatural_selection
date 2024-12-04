@@ -15,11 +15,11 @@ func attack():
 		if is_in_group("eHitbox"):
 			if body.is_in_group("gHitbox"):
 				body.hit(20)
-				body.knockback()
+				body.knockback(0)
 				break
 		elif is_in_group("gHitbox"):
 			if body.is_in_group("eHitbox"):
 				body.hit(20)
-				body.knockback()
+				body.knockback(0)
 				break
 	pass

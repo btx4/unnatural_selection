@@ -5,10 +5,13 @@ var max_health: float = 100
 var current_health: float = 100
 
 # Health bar dimensions
-var bar_width: float = 180.0
-var bar_height: float = 10.0
+var bar_width: float = 450.0
+var bar_height: float = 30.0
 var bar_color_full: Color = Color.GREEN
 var bar_color_empty: Color = Color.RED
+
+# Trapezoid skew factor (adjust to control the slant of the trapezoid)
+var skew_factor: float = 10.0
 
 # Draw the health bar based on current health
 func _draw():
@@ -16,11 +19,27 @@ func _draw():
 	var health_ratio = current_health / max_health
 	var current_bar_width = bar_width * health_ratio
 
-	# Draw the background (empty health)
-	draw_rect(Rect2(Vector2.RIGHT, Vector2(bar_width, bar_height)), bar_color_empty)
-
-	# Draw the current health
-	draw_rect(Rect2(Vector2.RIGHT, Vector2(current_bar_width, bar_height)), bar_color_full)
+	# Points for the empty (background) trapezoid
+	var empty_points = [
+		Vector2(0, 0),  # Top-left
+		Vector2(bar_width, 0),  # Top-right
+		Vector2(bar_width - skew_factor, bar_height),  # Bottom-right
+		Vector2(-skew_factor, bar_height)  # Bottom-left
+	]
+	
+	# Points for the full (current health) trapezoid
+	var full_points = [
+		Vector2(0, 0),  # Top-left
+		Vector2(current_bar_width, 0),  # Top-right
+		Vector2(current_bar_width - skew_factor, bar_height),  # Bottom-right
+		Vector2(-skew_factor, bar_height)  # Bottom-left
+	]
+	
+	# Draw the empty (background) trapezoid
+	draw_polygon(empty_points, [bar_color_empty])
+	
+	# Draw the full (current health) trapezoid
+	draw_polygon(full_points, [bar_color_full])
 
 # Update the health bar every time health changes
 func set_health(new_health: float):

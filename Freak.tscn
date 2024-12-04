@@ -1,30 +1,82 @@
-[gd_scene load_steps=41 format=3 uid="uid://f1g5usan2pfl"]
+[gd_scene load_steps=73 format=3 uid="uid://f1g5usan2pfl"]
 
 [ext_resource type="Script" path="res://freak_one.gd" id="1_edlgb"]
 [ext_resource type="Script" path="res://rigid_body_2d.gd" id="2_fq7x5"]
+[ext_resource type="Shader" uid="uid://b7lj173xuhrj1" path="res://Hitflash.tres" id="3_27ono"]
 [ext_resource type="Texture2D" uid="uid://cocrsj50q3njd" path="res://Human_chest.png" id="3_740ef"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="4_n6doh"]
 [ext_resource type="Texture2D" uid="uid://bu1hthihk64rc" path="res://BirdWings.png" id="4_trx0o"]
 [ext_resource type="Texture2D" uid="uid://b3eujdsntmlag" path="res://Kangaro (1) (1).png" id="5_1cd3y"]
+[ext_resource type="Texture2D" uid="uid://dr8hmft5bw3v0" path="res://Porcupine 1.0 (1).png" id="6_lqj5v"]
 [ext_resource type="Texture2D" uid="uid://dyxgqvgrllc5f" path="res://New Piskel (6).png" id="6_ofxn2"]
+[ext_resource type="PackedScene" uid="uid://ylobbosrysoa" path="res://node_2d.tscn" id="7_c7c3p"]
 [ext_resource type="Texture2D" uid="uid://xw5plqu5dn8g" path="res://crabwalk.png" id="7_sk5bc"]
 [ext_resource type="Texture2D" uid="uid://xm3xwcs7id80" path="res://BullCharge (1).png" id="8_soruw"]
 [ext_resource type="Texture2D" uid="uid://bx1srau6tgwtm" path="res://BullChargeUp (1).png" id="9_dbnib"]
 [ext_resource type="Texture2D" uid="uid://djowfelc1lklw" path="res://DustCloud.png" id="10_xiwyp"]
+[ext_resource type="PackedScene" uid="uid://cnws7atq8v8jc" path="res://dustcloud.tscn" id="11_gg35m"]
 [ext_resource type="Script" path="res://bull_charge_attack.gd" id="11_p7fxv"]
 [ext_resource type="AudioStream" uid="uid://bertsitsib6g8" path="res://audios/boing.mp3" id="12_upxll"]
 [ext_resource type="AudioStream" uid="uid://dsok433qg7upo" path="res://audios/scrape.mp3" id="13_wheam"]
 [ext_resource type="Script" path="res://head.gd" id="14_3sjtw"]
+[ext_resource type="Script" path="res://geysers.gd" id="15_8v62g"]
 [ext_resource type="Texture2D" uid="uid://bv1bl1aawwmp7" path="res://Alpaca_Sput.png" id="15_82yrn"]
+[ext_resource type="AudioStream" uid="uid://l83jlrqtl1hv" path="res://HitOne.mp3" id="16_jige2"]
 [ext_resource type="Texture2D" uid="uid://bxiroqh1afxij" path="res://GiraffeCentered.png" id="16_vl83o"]
+[ext_resource type="Texture2D" uid="uid://n5nurjwhrlvp" path="res://PlayerIcons.png" id="17_3made"]
 [ext_resource type="Script" path="res://giraffe_attack_l.gd" id="17_nwskj"]
 [ext_resource type="Script" path="res://giraffe_attack_r.gd" id="18_0mtdb"]
 [ext_resource type="AudioStream" uid="uid://xqc2h10g0t6l" path="res://audios/GatherAndSpit.mp3" id="19_h4oal"]
 [ext_resource type="AudioStream" uid="uid://cw05sphug8pqv" path="res://audios/swing.mp3" id="20_cl01o"]
+[ext_resource type="Texture2D" uid="uid://bd5mqehqfu5em" path="res://orcablast.png" id="22_i87o8"]
+[ext_resource type="Script" path="res://blast_middle.gd" id="23_1qw8j"]
+[ext_resource type="Script" path="res://geyser_blast.gd" id="23_24uqc"]
+[ext_resource type="Texture2D" uid="uid://1pf617bbky3p" path="res://New Piskel (10).png" id="24_0vkm5"]
+[ext_resource type="Script" path="res://bfl.gd" id="25_4bnad"]
+[ext_resource type="Script" path="res://bl.gd" id="26_gf1ri"]
+[ext_resource type="Script" path="res://bfr.gd" id="27_rucd6"]
+[ext_resource type="AudioStream" uid="uid://hj2tu32lll6g" path="res://Geyser.mp3" id="28_2pr0v"]
+[ext_resource type="Script" path="res://br.gd" id="28_hvda5"]
+[ext_resource type="AudioStream" uid="uid://d0ltembf6wuox" path="res://breth.mp3" id="29_hlmb6"]
+[ext_resource type="AudioStream" uid="uid://dsh682r3kmq7" path="res://714257__qubodup__puff-of-smoke.wav" id="36_jxqis"]
+[ext_resource type="Script" path="res://quill_shooter.gd" id="40_r8jck"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_phs7a"]
 radius = 39.0
 height = 100.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6rgj"]
+resource_local_to_scene = true
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_2fw3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BirdChest:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PorcupineChest:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_vmq2a"]
 resource_name = "birdFlap"
@@ -58,363 +110,379 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_2fw3x"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_2b8gx"]
+resource_name = "porcupine"
+length = 2.00001
+loop_mode = 1
+step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BirdChest:frame")
+tracks/0/path = NodePath("PorcupineChest:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333, 1.66667, 1.75, 1.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.66667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"quillLaunch"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../QuillShooter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7s3nt"]
 _data = {
 "RESET": SubResource("Animation_2fw3x"),
-"birdFlap": SubResource("Animation_vmq2a")
+"birdFlap": SubResource("Animation_vmq2a"),
+"porcupine": SubResource("Animation_2b8gx")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_707m6"]
+resource_local_to_scene = true
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37og5"]
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ts2vs"]
+radius = 331.489
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu0ed"]
 size = Vector2(126, 85)
 
-[sub_resource type="Animation" id="Animation_gb101"]
-resource_name = "BullCharge"
-length = 0.416675
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BullCharge:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BullChargeAttack")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"attack"
-}, {
-"args": [],
-"method": &"attack"
-}, {
-"args": [],
-"method": &"attack"
-}, {
-"args": [],
-"method": &"attack"
-}, {
-"args": [],
-"method": &"attack"
-}, {
-"args": [],
-"method": &"attack"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.416667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"charge"
-}]
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0c2r"]
+resource_local_to_scene = true
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 1)
 
-[sub_resource type="Animation" id="Animation_iie2f"]
-resource_name = "BullChargeUp"
-length = 2.50001
-step = 0.0833333
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edlyb"]
+resource_local_to_scene = true
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y1idn"]
+resource_local_to_scene = true
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kytp6"]
+resource_local_to_scene = true
+shader = ExtResource("3_27ono")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyecu"]
+size = Vector2(180, 63)
+
+[sub_resource type="Animation" id="Animation_nip4v"]
+resource_name = "HF"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BullChargeUp:frame")
+tracks/0/path = NodePath("../CHEST/Human_Collision/HumanChest:material:shader_parameter/Enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333, 0.916666, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333, 1.66667, 1.75, 1.83333, 1.91667, 2, 2.08333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.25, 2.5),
+"times": PackedFloat32Array(0, 0.166667),
 "transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"chargeReset"
-}, {
-"args": [],
-"method": &"charge"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BullChargeUp/Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.75, 1.83333, 1.91667, 2, 2.08333, 2.16667, 2.25, 2.33333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Scrape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.25, 1, 1.75),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_winnw"]
-resource_name = "Crabwalk"
-length = 0.916675
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CrabLegs:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.365345, 0.416667, 0.5, 0.583333, 0.664928, 0.767225, 0.840294, 0.916666),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}, {
-"args": [],
-"method": &"crabRandom"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_1ygdj"]
-resource_name = "KangarooJump"
-length = 1.33334
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RooLegs:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.25, 1.33333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 13]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_jump"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Boing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_8t5op"]
-resource_name = "Kangaroo_Idle"
-length = 0.0833417
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RooLegs:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_eunry"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RooLegs:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CrabLegs:frame")
+tracks/1/path = NodePath("../CHEST/Human_Collision/BirdChest:material:shader_parameter/Enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D2/RooLegs:material:shader_parameter/Enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D2/CrabLegs:material:shader_parameter/Enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D2/BullCharge:material:shader_parameter/Enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D2/BullChargeUp:material:shader_parameter/Enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D2/BullChargeUp/Sprite2D:material:shader_parameter/Enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Head/CollisionShape2D2/LlamaHead:material:shader_parameter/Enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Head/CollisionShape2D2/Giraffe:material:shader_parameter/Enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Head/CollisionShape2D2/OrcaHead:material:shader_parameter/Enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CHEST/Human_Collision/PorcupineChest:material:shader_parameter/Enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qx4k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CHEST/Human_Collision/HumanChest:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CHEST/Human_Collision/BirdChest:material:shader_parameter/Enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BullCharge:frame")
+tracks/2/path = NodePath("CollisionShape2D2/RooLegs:material:shader_parameter/Enabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BullChargeUp:frame")
+tracks/3/path = NodePath("CollisionShape2D2/CrabLegs:material:shader_parameter/Enabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BullChargeUp/Sprite2D:frame")
+tracks/4/path = NodePath("CollisionShape2D2/BullCharge:material:shader_parameter/Enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D2/BullChargeUp:material:shader_parameter/Enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D2/BullChargeUp/Sprite2D:material:shader_parameter/Enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Head/CollisionShape2D2/LlamaHead:material:shader_parameter/Enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Head/CollisionShape2D2/Giraffe:material:shader_parameter/Enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Head/CollisionShape2D2/OrcaHead:material:shader_parameter/Enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CHEST/Human_Collision/PorcupineChest:material:shader_parameter/Enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ue2kn"]
-resource_local_to_scene = true
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ee75e"]
 _data = {
-"BullCharge": SubResource("Animation_gb101"),
-"BullChargeUp": SubResource("Animation_iie2f"),
-"Crabwalk": SubResource("Animation_winnw"),
-"KangarooJump": SubResource("Animation_1ygdj"),
-"Kangaroo_Idle": SubResource("Animation_8t5op"),
-"RESET": SubResource("Animation_eunry")
+"HF": SubResource("Animation_nip4v"),
+"RESET": SubResource("Animation_qx4k6")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyecu"]
-size = Vector2(180, 63)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2teb8"]
 radius = 18.0
@@ -441,6 +509,18 @@ tracks/1/path = NodePath("Giraffe:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OrcaHead:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -524,7 +604,7 @@ tracks/1/keys = {
 "method": &"giraffeAttack"
 }, {
 "args": [],
-"method": &"endGiraffeAttack"
+"method": &"giraffeAttack"
 }]
 }
 tracks/2/type = "method"
@@ -542,15 +622,121 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ekllh"]
+resource_name = "orcablast"
+length = 3.33334
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OrcaHead:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333, 1.66667, 1.75, 1.83333, 1.91667, 2, 2.08333, 2.16667, 2.25, 2.33333, 2.41667, 2.5, 2.58333, 2.66667, 2.83334, 2.91667, 3, 3.08333, 3.16667, 3.25, 3.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 32, 32, 32, 32, 32, 32, 32]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.58333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"blast"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GeyserBlast2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.58333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Breath")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ms8"]
 _data = {
 "RESET": SubResource("Animation_floxv"),
 "alpaca_spit": SubResource("Animation_g5nal"),
-"giraffe_attack": SubResource("Animation_025nm")
+"giraffe_attack": SubResource("Animation_025nm"),
+"orcablast": SubResource("Animation_ekllh")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lpkr"]
-size = Vector2(213.822, 160.619)
+size = Vector2(321.934, 225.297)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3asm1"]
+size = Vector2(90, 199)
+
+[sub_resource type="Curve" id="Curve_0kh6t"]
+_data = [Vector2(0.00666666, 0), 0.0, 8.155, 0, 0, Vector2(0.973333, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_icy20"]
+curve = SubResource("Curve_0kh6t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x486j"]
+direction = Vector3(1, -50, 0)
+spread = 4.0
+initial_velocity_min = 155.0
+initial_velocity_max = 155.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 32.26
+gravity = Vector3(0, 200, 0)
+scale_min = 0.1
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_icy20")
+scale_over_velocity_max = 494.62
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+collision_use_scale = true
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="Curve" id="Curve_4uib8"]
+_data = [Vector2(0.293333, 1), 0.0, 0.0, 0, 0, Vector2(0.686667, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y0ejg"]
+curve = SubResource("Curve_4uib8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2lrx6"]
+particle_flag_disable_z = true
+spread = 20.0
+flatness = 1.0
+initial_velocity_min = 306.45
+initial_velocity_max = 419.36
+gravity = Vector3(0, 200, 0)
+radial_accel_min = 93.55
+radial_accel_max = 100.0
+scale_curve = SubResource("CurveTexture_y0ejg")
 
 [node name="Freak One" type="Node2D"]
 position = Vector2(122, 292)
@@ -560,26 +746,39 @@ script = ExtResource("1_edlgb")
 position = Vector2(0, 2)
 script = ExtResource("2_fq7x5")
 
+[node name="Quills" parent="CHEST" instance=ExtResource("7_c7c3p")]
+
 [node name="Human_Collision" type="CollisionShape2D" parent="CHEST"]
 shape = SubResource("CapsuleShape2D_phs7a")
 
 [node name="HumanChest" type="Sprite2D" parent="CHEST/Human_Collision"]
+visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_f6rgj")
 rotation = -3.14159
 scale = Vector2(3.12636, -2.86056)
 texture = ExtResource("3_740ef")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEST/Human_Collision"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CHEST/Human_Collision" groups=["ap"]]
 libraries = {
 "": SubResource("AnimationLibrary_7s3nt")
 }
 
 [node name="BirdChest" type="Sprite2D" parent="CHEST/Human_Collision"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_707m6")
 scale = Vector2(3.126, 2.861)
 texture = ExtResource("4_trx0o")
 hframes = 2
 vframes = 4
+
+[node name="PorcupineChest" type="Sprite2D" parent="CHEST/Human_Collision"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_37og5")
+scale = Vector2(3.126, 2.861)
+texture = ExtResource("6_lqj5v")
+hframes = 4
+vframes = 6
 
 [node name="PinJoint2D" type="PinJoint2D" parent="CHEST"]
 position = Vector2(0, -25)
@@ -587,6 +786,13 @@ node_a = NodePath("../../Head")
 node_b = NodePath("..")
 bias = 0.041
 angular_limit_upper = -0.575959
+
+[node name="QuillShooter" type="Area2D" parent="CHEST"]
+position = Vector2(0, -2)
+script = ExtResource("40_r8jck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CHEST/QuillShooter"]
+shape = SubResource("CircleShape2D_ts2vs")
 
 [node name="Legs" type="CharacterBody2D" parent="." groups=["legs"]]
 position = Vector2(0, 57)
@@ -599,6 +805,7 @@ shape = SubResource("RectangleShape2D_fu0ed")
 [node name="RooLegs" type="Sprite2D" parent="Legs/CollisionShape2D2"]
 visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_o0c2r")
 position = Vector2(-3, -3)
 scale = Vector2(4.125, 4.125)
 texture = ExtResource("5_1cd3y")
@@ -614,15 +821,11 @@ texture = ExtResource("6_ofxn2")
 hframes = 2
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Legs/CollisionShape2D2"]
-libraries = {
-"": SubResource("AnimationLibrary_ue2kn")
-}
-autoplay = "BullCharge"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Legs/CollisionShape2D2" groups=["ap"]]
 
 [node name="CrabLegs" type="Sprite2D" parent="Legs/CollisionShape2D2"]
-visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_edlyb")
 position = Vector2(0, -3)
 scale = Vector2(4.125, 4.125)
 texture = ExtResource("7_sk5bc")
@@ -630,23 +833,29 @@ hframes = 2
 vframes = 6
 
 [node name="BullCharge" type="Sprite2D" parent="Legs/CollisionShape2D2"]
-visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_y1idn")
 position = Vector2(0, -3)
-scale = Vector2(-4.125, 4.125)
+rotation = -3.14159
+scale = Vector2(4.125, -4.125)
 texture = ExtResource("8_soruw")
 hframes = 2
 vframes = 3
 
 [node name="BullChargeUp" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_kytp6")
 position = Vector2(8, -3.5)
-scale = Vector2(-4.125, 4.125)
+rotation = -3.14159
+scale = Vector2(4.125, -4.125)
 texture = ExtResource("9_dbnib")
 hframes = 2
 vframes = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Legs/CollisionShape2D2/BullChargeUp"]
+visible = false
+material = SubResource("ShaderMaterial_kytp6")
 position = Vector2(4.12121, 7.87879)
 texture = ExtResource("10_xiwyp")
 hframes = 3
@@ -658,6 +867,10 @@ script = ExtResource("11_p7fxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Legs/CollisionShape2D2/BullChargeAttack"]
 shape = SubResource("RectangleShape2D_dyecu")
+
+[node name="Dustcloud" parent="Legs/CollisionShape2D2" instance=ExtResource("11_gg35m")]
+position = Vector2(35, 46.5)
+rotation = -0.240584
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Legs"]
 position = Vector2(0, -13)
@@ -673,30 +886,20 @@ stream = ExtResource("12_upxll")
 [node name="Scrape" type="AudioStreamPlayer2D" parent="Legs"]
 stream = ExtResource("13_wheam")
 
-[node name="Identifier" type="Control" parent="Legs"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -27.0
-offset_top = -223.0
-offset_right = 13.0
-offset_bottom = -183.0
+[node name="Hitflash" type="AnimationPlayer" parent="Legs"]
+libraries = {
+"": SubResource("AnimationLibrary_ee75e")
+}
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Legs/Identifier"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -43.5
-offset_top = -20.0
-offset_right = 43.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Player Two
-"
-text_direction = 1
+[node name="Hit" type="AudioStreamPlayer2D" parent="Legs"]
+stream = ExtResource("16_jige2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs"]
+texture_filter = 1
+position = Vector2(-14, -339)
+scale = Vector2(4, 4)
+texture = ExtResource("17_3made")
+vframes = 2
 
 [node name="Head" type="RigidBody2D" parent="."]
 position = Vector2(-2, -34)
@@ -707,7 +910,7 @@ script = ExtResource("14_3sjtw")
 position = Vector2(-2, -8)
 shape = SubResource("CapsuleShape2D_2teb8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/CollisionShape2D2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/CollisionShape2D2" groups=["ap"]]
 libraries = {
 "": SubResource("AnimationLibrary_f1ms8")
 }
@@ -716,6 +919,7 @@ autoplay = "giraffe_attack"
 [node name="LlamaHead" type="Sprite2D" parent="Head/CollisionShape2D2"]
 visible = false
 texture_filter = 1
+material = SubResource("ShaderMaterial_kytp6")
 position = Vector2(4, -32)
 rotation = -3.14159
 scale = Vector2(3.316, -3.316)
@@ -729,9 +933,10 @@ position = Vector2(-38, -24)
 
 [node name="Giraffe" type="Sprite2D" parent="Head/CollisionShape2D2"]
 texture_filter = 1
-position = Vector2(3, -156)
-rotation = -0.00109695
-scale = Vector2(-1.97, 1.967)
+material = SubResource("ShaderMaterial_kytp6")
+position = Vector2(3, -226)
+rotation = 3.1405
+scale = Vector2(2.75205, -2.74786)
 texture = ExtResource("16_vl83o")
 hframes = 4
 vframes = 5
@@ -741,8 +946,8 @@ position = Vector2(-3, 0)
 script = ExtResource("17_nwskj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head/CollisionShape2D2/GiraffeAttackL"]
-position = Vector2(-50.3533, -42.8672)
-rotation = -0.431619
+position = Vector2(-61, -84)
+rotation = -0.0593637
 shape = SubResource("RectangleShape2D_5lpkr")
 
 [node name="GiraffeAttackR" type="Area2D" parent="Head/CollisionShape2D2"]
@@ -750,16 +955,284 @@ position = Vector2(-1, 8)
 script = ExtResource("18_0mtdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head/CollisionShape2D2/GiraffeAttackR"]
-position = Vector2(44, -56)
-rotation = -2.78781
+position = Vector2(67, -90)
+rotation = -3.08163
 scale = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_5lpkr")
+
+[node name="OrcaHead" type="Sprite2D" parent="Head/CollisionShape2D2"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_kytp6")
+position = Vector2(4, -78)
+scale = Vector2(4, 4)
+texture = ExtResource("22_i87o8")
+hframes = 6
+vframes = 6
 
 [node name="Spit" type="AudioStreamPlayer2D" parent="Head"]
 stream = ExtResource("19_h4oal")
 
 [node name="Swing" type="AudioStreamPlayer2D" parent="Head"]
 stream = ExtResource("20_cl01o")
+
+[node name="GeyserBlast" type="Area2D" parent="Head"]
+position = Vector2(-2, -8)
+script = ExtResource("23_24uqc")
+
+[node name="GeyserShape" type="CollisionShape2D" parent="Head/GeyserBlast"]
+position = Vector2(5, -154.5)
+shape = SubResource("RectangleShape2D_3asm1")
+
+[node name="blastMiddle" type="Node2D" parent="Head"]
+position = Vector2(-3, -24)
+script = ExtResource("23_1qw8j")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Head/blastMiddle"]
+texture_filter = 1
+scale = Vector2(1.74331, 1.74331)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_x486j")
+texture = ExtResource("24_0vkm5")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+trail_lifetime = 0.6
+
+[node name="SprayR2" type="GPUParticles2D" parent="Head/blastMiddle"]
+position = Vector2(0, -24)
+rotation = 3.14159
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="SprayR" type="GPUParticles2D" parent="Head/blastMiddle"]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="Timer" type="Timer" parent="Head/blastMiddle"]
+wait_time = 2.0
+autostart = true
+
+[node name="GeyserBlast2" type="AudioStreamPlayer2D" parent="Head"]
+stream = ExtResource("28_2pr0v")
+
+[node name="Breath" type="AudioStreamPlayer2D" parent="Head"]
+position = Vector2(-2, -8)
+stream = ExtResource("29_hlmb6")
+
+[node name="geysers" type="Node2D" parent="."]
+position = Vector2(0, 57)
+script = ExtResource("15_8v62g")
+
+[node name="BFL" type="Node2D" parent="geysers"]
+position = Vector2(-280, 32)
+script = ExtResource("25_4bnad")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="geysers/BFL"]
+texture_filter = 1
+scale = Vector2(1.74331, 1.74331)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_x486j")
+texture = ExtResource("24_0vkm5")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.75
+trail_lifetime = 0.6
+
+[node name="SprayR2" type="GPUParticles2D" parent="geysers/BFL"]
+position = Vector2(0, -24)
+rotation = 3.14159
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="SprayR" type="GPUParticles2D" parent="geysers/BFL"]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="Timer" type="Timer" parent="geysers/BFL"]
+wait_time = 2.0
+autostart = true
+
+[node name="GeyserBlast" type="Area2D" parent="geysers/BFL"]
+position = Vector2(-9, 44)
+script = ExtResource("23_24uqc")
+
+[node name="GeyserShape" type="CollisionShape2D" parent="geysers/BFL/GeyserBlast"]
+position = Vector2(5, -154.5)
+shape = SubResource("RectangleShape2D_3asm1")
+
+[node name="BL" type="Node2D" parent="geysers"]
+position = Vector2(-136, 24)
+script = ExtResource("26_gf1ri")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="geysers/BL"]
+texture_filter = 1
+scale = Vector2(1.74331, 1.74331)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_x486j")
+texture = ExtResource("24_0vkm5")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.75
+trail_lifetime = 0.6
+
+[node name="SprayR2" type="GPUParticles2D" parent="geysers/BL"]
+position = Vector2(0, -24)
+rotation = 3.14159
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="SprayR" type="GPUParticles2D" parent="geysers/BL"]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="Timer" type="Timer" parent="geysers/BL"]
+wait_time = 2.0
+autostart = true
+
+[node name="GeyserBlast" type="Area2D" parent="geysers/BL"]
+position = Vector2(-4, 55)
+script = ExtResource("23_24uqc")
+
+[node name="GeyserShape" type="CollisionShape2D" parent="geysers/BL/GeyserBlast"]
+position = Vector2(5, -154.5)
+shape = SubResource("RectangleShape2D_3asm1")
+
+[node name="BFR" type="Node2D" parent="geysers"]
+position = Vector2(312, 32)
+script = ExtResource("27_rucd6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="geysers/BFR"]
+texture_filter = 1
+scale = Vector2(1.74331, 1.74331)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_x486j")
+texture = ExtResource("24_0vkm5")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.75
+trail_lifetime = 0.6
+
+[node name="SprayR2" type="GPUParticles2D" parent="geysers/BFR"]
+position = Vector2(0, -24)
+rotation = 3.14159
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="SprayR" type="GPUParticles2D" parent="geysers/BFR"]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="Timer" type="Timer" parent="geysers/BFR"]
+wait_time = 2.0
+autostart = true
+
+[node name="GeyserBlast" type="Area2D" parent="geysers/BFR"]
+position = Vector2(-4, 55)
+script = ExtResource("23_24uqc")
+
+[node name="GeyserShape" type="CollisionShape2D" parent="geysers/BFR/GeyserBlast"]
+position = Vector2(5, -154.5)
+shape = SubResource("RectangleShape2D_3asm1")
+
+[node name="BR" type="Node2D" parent="geysers"]
+position = Vector2(176, 32)
+script = ExtResource("28_hvda5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="geysers/BR"]
+texture_filter = 1
+scale = Vector2(1.74331, 1.74331)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_x486j")
+texture = ExtResource("24_0vkm5")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.75
+trail_lifetime = 0.6
+
+[node name="SprayR2" type="GPUParticles2D" parent="geysers/BR"]
+position = Vector2(0, -24)
+rotation = 3.14159
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="SprayR" type="GPUParticles2D" parent="geysers/BR"]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2lrx6")
+texture = ExtResource("24_0vkm5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.88
+
+[node name="Timer" type="Timer" parent="geysers/BR"]
+wait_time = 2.0
+autostart = true
+
+[node name="GeyserBlast" type="Area2D" parent="geysers/BR"]
+position = Vector2(-4, 55)
+script = ExtResource("23_24uqc")
+
+[node name="GeyserShape" type="CollisionShape2D" parent="geysers/BR/GeyserBlast"]
+position = Vector2(5, -154.5)
+shape = SubResource("RectangleShape2D_3asm1")
+
+[node name="Poof" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_jxqis")
 
 [connection signal="timeout" from="Legs/Knock" to="Legs" method="_on_knock_timeout"]
 [connection signal="body_entered" from="Head/CollisionShape2D2/GiraffeAttackR" to="Head/CollisionShape2D2/GiraffeAttackR" method="_on_body_entered"]

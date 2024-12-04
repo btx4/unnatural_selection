@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0c8w6cr7ep3"]
+
+[ext_resource type="Texture2D" uid="uid://dnxwf575bjuol" path="res://Smoke.png" id="1_wtxgi"]
+
+[sub_resource type="Curve" id="Curve_hrb0m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.966667, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xonmf"]
+curve = SubResource("Curve_hrb0m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6qwid"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+angular_velocity_min = -170.33
+angular_velocity_max = 356.13
+radial_velocity_min = 182.8
+radial_velocity_max = 397.85
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 24.0
+scale_curve = SubResource("CurveTexture_xonmf")
+
+[node name="Smoke Bomb" type="GPUParticles2D"]
+modulate = Color(1, 1, 1, 0.827451)
+texture_filter = 1
+position = Vector2(3, -2)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_6qwid")
+texture = ExtResource("1_wtxgi")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0

@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if source == 0:
 		if body.is_in_group("eHitbox"):
+			$Blood.emitting = true	
 			body.hit(3)
 			$AnimationPlayer.play("hit")
 			$Sprite2D.queue_free()
@@ -27,6 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 			print(body)
 	else:
 		if body.is_in_group("gHitbox"):
+			$Blood.emitting = true
 			body.hit(3)
 			$AnimationPlayer.play("hit")
 			$Sprite2D.queue_free()

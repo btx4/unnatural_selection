@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dev7uoofhlmkk"]
+
+[ext_resource type="Texture2D" uid="uid://tf37ibk66ei8" path="res://New Piskel (11).png" id="1_nca26"]
+
+[sub_resource type="Curve" id="Curve_y3wt5"]
+_data = [Vector2(0.414566, 0.0572519), 0.0, 0.0, 0, 0, Vector2(0.523809, 1), 0.0, 0.0, 0, 0, Vector2(0.736695, 0.269902), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t2ucy"]
+curve = SubResource("Curve_y3wt5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qe5y1"]
+particle_flag_disable_z = true
+radial_velocity_min = 1000.0
+radial_velocity_max = 1000.0
+radial_velocity_curve = SubResource("CurveTexture_t2ucy")
+gravity = Vector3(0, 0, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_qe5y1")
+texture = ExtResource("1_nca26")
+explosiveness = 0.2
+trail_enabled = true

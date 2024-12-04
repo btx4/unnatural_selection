@@ -11,7 +11,6 @@ var shake_timer = 0.0  # Internal timer to track shake duration
 func _ready() -> void:
 	original_position = position  # Store the original position
 	set_process(false)  # Disable process unless shaking
-	pass # Replace with function body.
 
 func start_screenshake(duration: float, intensity: float):
 	shake_duration = duration

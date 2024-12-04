@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var zoom_out_threshold = 100  # Threshold for diffY to trigger zoom out
-@export var zoom_out_threshold2_x = 1700  # Threshold for diffY to trigger zoom out
+@export var zoom_out_threshold2_x = 2000  # Threshold for diffY to trigger zoom out
 @export var zoom_out_threshold_x = 1300  # Threshold for diffY to trigger zoom out
 @export var min_zoom = Vector2(1, 1)  # Default zoom level
 @export var mid_zoom = Vector2(.75, .75)  # Zoom out level
@@ -30,9 +30,9 @@ func _process(delta):
 			zoom = lerp(zoom, min_zoom, delta * zoom_speed)
 	else:
 		if freak == 1:
-			position = get_parent().get_node("Freak One/CHEST").position
+			global_position = get_parent().get_node("Freak One/CHEST").global_position
 		else:
-			position = get_parent().get_node("Freak One2/CHEST").position
+			global_position = get_parent().get_node("Freak One2/CHEST").global_position
 func changeVis():
 	if get_parent().get_node("Freak One2").dead == false:
 		lerp(position, get_parent().get_node("Freak One2/CHEST").position, .5)

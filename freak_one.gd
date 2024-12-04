@@ -3,6 +3,7 @@ var MaxHealth = 100
 var currentHealth = 100
 var dead = false
 # Called when the node enters the scene tree for the first time.
+var children
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -10,16 +11,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_in_group("good_guy"):
-		get_parent().get_node("Camera2D/HealthBarLeft").set_health(currentHealth)
+		get_parent().get_node("CanvasLayer/HealthBarLeft").set_health(currentHealth)
 		if currentHealth <= 0 and dead == false:
 			die()
 	else :
-		get_parent().get_node("Camera2D/HealthBarRight").set_health(currentHealth)
+		get_parent().get_node("CanvasLayer/HealthBarRight").set_health(currentHealth)
 		if currentHealth <= 0 and dead == false:
 			die()
 	pass
 
-
+func start(): 
+	$Legs.started = true
+	$Head.started = true
+	
 func die():
 	$Legs.isDead = true
 	$CHEST.isDead = true

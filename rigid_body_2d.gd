@@ -28,8 +28,8 @@ func hit(damage: int):
 	get_parent().get_node("Legs").hit(damage)
 	
 	
-func knockback():
-	get_parent().get_node("Legs").knockback()
+func knockback(type: int):
+	get_parent().get_node("Legs").knockback(type)
 	
 func _input(event: InputEvent) -> void:
 	if is_in_group("gHitbox"):
@@ -49,16 +49,29 @@ func _input(event: InputEvent) -> void:
 	if chest_type == 0 and chest_type != pchest_type:
 		$Human_Collision/HumanChest.visible = true
 		$Human_Collision/AnimationPlayer.stop()
+		$Human_Collision/PorcupineChest.visible = false
 		$Human_Collision/BirdChest.visible = false
+		maxFlaps = 10
 	elif chest_type == 1 and chest_type != pchest_type:
 		$Human_Collision/HumanChest.visible = false
 		$Human_Collision/BirdChest.visible = true
+		$Human_Collision/PorcupineChest.visible = false
 		$Human_Collision/AnimationPlayer.play("birdFlap")
+		maxFlaps = 10
 	elif chest_type == 2 and chest_type != pchest_type:
 		$Human_Collision/HumanChest.visible = false
 		$Human_Collision/AnimationPlayer.stop()
+		$Human_Collision/PorcupineChest.visible = true
 		$Human_Collision/BirdChest.visible = false
+		$Human_Collision/AnimationPlayer.play("porcupine")
+		maxFlaps = 10
+	if pchest_type != chest_type:
+		$"Smoke Bomb".restart()
+		get_parent().get_node("Poof").play()
 	pchest_type = chest_type
+
+func quillLaunch():
+	$Quills/Porcupine.restart()
 
 var maxFlaps = 10
 func flap():

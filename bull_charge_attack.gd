@@ -16,16 +16,19 @@ func attack():
 	for body in bodies:
 		if is_in_group("eHitbox"):
 			if body.is_in_group("gHitbox"):
+				get_parent().get_node("Dustcloud").emitting = false
 				body.hit(5)
-				body.knockback()
+				body.knockback(0)
 				get_parent().get_node("AnimationPlayer").play("BullChargeUp")
 				get_parent().get_node("BullCharge").visible = false
 				get_parent().get_node("BullChargeUp").visible = true
 				break
 		elif is_in_group("gHitbox"):
 			if body.is_in_group("eHitbox"):
+				get_parent().get_node("Dustcloud").emitting = false
+
 				body.hit(5)
-				body.knockback()
+				body.knockback(0)
 				get_parent().get_node("AnimationPlayer").play("BullChargeUp")
 				get_parent().get_node("BullCharge").visible = false
 				get_parent().get_node("BullChargeUp").visible = true
