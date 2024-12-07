@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://dmo7x0f38w0m2"]
+[gd_scene load_steps=49 format=3 uid="uid://dmo7x0f38w0m2"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_ehaop"]
+[ext_resource type="PackedScene" uid="uid://dampflmdgtbd6" path="res://stadium_background.tscn" id="2_7kw2n"]
 [ext_resource type="Script" path="res://Bouncy Wall.gd" id="2_mk8gn"]
 [ext_resource type="Script" path="res://deathbox.gd" id="2_wiguw"]
 [ext_resource type="PackedScene" uid="uid://f1g5usan2pfl" path="res://Freak.tscn" id="4_taioj"]
@@ -9,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dgusiqldil4wj" path="res://Countdown.png" id="11_m0uid"]
 [ext_resource type="Script" path="res://one.gd" id="12_08jki"]
 [ext_resource type="Script" path="res://t_floors.gd" id="12_ryw08"]
+[ext_resource type="Script" path="res://controls_l.gd" id="12_snu5r"]
 [ext_resource type="Script" path="res://two.gd" id="14_xhhp3"]
 [ext_resource type="Script" path="res://health_bar_right.gd" id="16_8qbce"]
 [ext_resource type="Script" path="res://control.gd" id="16_80np6"]
+[ext_resource type="Shader" uid="uid://cl486vbglht25" path="res://iconshader.tres" id="17_j52jk"]
+[ext_resource type="Texture2D" uid="uid://dnpj25fs3r542" path="res://icon.svg" id="18_152xx"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="21_btocb"]
 [ext_resource type="PackedScene" uid="uid://1coxk6var58w" path="res://grasses.tscn" id="22_4xxe7"]
 
@@ -21,7 +25,7 @@ size = Vector2(1473, 20192)
 [sub_resource type="CanvasTexture" id="CanvasTexture_bgtuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rujvs"]
-size = Vector2(4266, 935.5)
+size = Vector2(4335, 935.5)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_epv3n"]
 
@@ -524,6 +528,34 @@ tracks/3/keys = {
 "method": &"destroy"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Controls L")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.08333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Controls R")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.08333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fb3jx"]
 _data = {
@@ -534,8 +566,28 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kg5k"]
 size = Vector2(436, 66)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhfww"]
+shader = ExtResource("17_j52jk")
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ehaop")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(0, -624)
+
+[node name="StadiumBackground" parent="Background" instance=ExtResource("2_7kw2n")]
+
+[node name="StadiumBackground2" parent="Background" instance=ExtResource("2_7kw2n")]
+position = Vector2(930, 294)
+
+[node name="StadiumBackground3" parent="Background" instance=ExtResource("2_7kw2n")]
+position = Vector2(1860, 294)
+
+[node name="StadiumBackground4" parent="Background" instance=ExtResource("2_7kw2n")]
+position = Vector2(2790, 294)
+
+[node name="StadiumBackground5" parent="Background" instance=ExtResource("2_7kw2n")]
+position = Vector2(-930, 294)
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -585,13 +637,13 @@ shape = SubResource("RectangleShape2D_5yr3b")
 position = Vector2(577, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Floor"]
-position = Vector2(-1, 397.25)
+position = Vector2(33.5, 397.25)
 shape = SubResource("RectangleShape2D_rujvs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Floor"]
-modulate = Color(0.0911101, 0.463288, 0, 1)
-position = Vector2(-0.25, 397.5)
-scale = Vector2(4204.5, 1013)
+modulate = Color(0.717945, 0.630884, 0.299984, 1)
+position = Vector2(29.0001, 901.5)
+scale = Vector2(6602, 2021)
 texture = SubResource("CanvasTexture_epv3n")
 
 [node name="deathbox" type="Area2D" parent="Walls"]
@@ -610,7 +662,9 @@ position = Vector2(1244, 0)
 
 [node name="CHEST" parent="Freak One2" index="0" groups=["eHitbox"]]
 
-[node name="Human_Collision" parent="Freak One2/CHEST" index="1" groups=["eHitbox"]]
+[node name="Smoke Bomb" parent="Freak One2/CHEST" index="2" instance=ExtResource("6_5qmfw")]
+
+[node name="Human_Collision" parent="Freak One2/CHEST" index="6" groups=["eHitbox"]]
 
 [node name="HumanChest" parent="Freak One2/CHEST/Human_Collision" index="0"]
 material = SubResource("ShaderMaterial_hdahn")
@@ -618,9 +672,7 @@ material = SubResource("ShaderMaterial_hdahn")
 [node name="BirdChest" parent="Freak One2/CHEST/Human_Collision" index="2"]
 material = SubResource("ShaderMaterial_m0acj")
 
-[node name="Smoke Bomb" parent="Freak One2/CHEST" index="2" instance=ExtResource("6_5qmfw")]
-
-[node name="QuillShooter" parent="Freak One2/CHEST" index="4" groups=["eHitbox"]]
+[node name="QuillShooter" parent="Freak One2/CHEST" index="8" groups=["eHitbox"]]
 
 [node name="Legs" parent="Freak One2" index="1" groups=["eHitbox"]]
 
@@ -629,24 +681,24 @@ material = SubResource("ShaderMaterial_m0acj")
 [node name="RooLegs" parent="Freak One2/Legs/CollisionShape2D2" index="0"]
 material = SubResource("ShaderMaterial_e6dg4")
 
-[node name="AnimationPlayer" parent="Freak One2/Legs/CollisionShape2D2" index="2"]
+[node name="AnimationPlayer" parent="Freak One2/Legs/CollisionShape2D2" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_dbio5")
 }
 
-[node name="CrabLegs" parent="Freak One2/Legs/CollisionShape2D2" index="3"]
+[node name="CrabLegs" parent="Freak One2/Legs/CollisionShape2D2" index="2"]
 material = SubResource("ShaderMaterial_2fpxc")
 
-[node name="BullCharge" parent="Freak One2/Legs/CollisionShape2D2" index="4"]
+[node name="BullCharge" parent="Freak One2/Legs/CollisionShape2D2" index="3"]
 material = SubResource("ShaderMaterial_v3g5y")
 
-[node name="BullChargeUp" parent="Freak One2/Legs/CollisionShape2D2" index="5"]
+[node name="BullChargeUp" parent="Freak One2/Legs/CollisionShape2D2" index="4"]
 material = SubResource("ShaderMaterial_utfwr")
 
 [node name="Sprite2D" parent="Freak One2/Legs/CollisionShape2D2/BullChargeUp" index="0"]
 material = SubResource("ShaderMaterial_utfwr")
 
-[node name="BullChargeAttack" parent="Freak One2/Legs/CollisionShape2D2" index="6" groups=["eHitbox"]]
+[node name="BullChargeAttack" parent="Freak One2/Legs/CollisionShape2D2" index="5" groups=["eHitbox"]]
 
 [node name="Sprite2D" parent="Freak One2/Legs" index="7"]
 position = Vector2(-11, -334)
@@ -689,7 +741,9 @@ position = Vector2(135, -23)
 
 [node name="CHEST" parent="Freak One" index="0" groups=["gHitbox"]]
 
-[node name="Human_Collision" parent="Freak One/CHEST" index="1" groups=["gHitbox"]]
+[node name="Smoke Bomb" parent="Freak One/CHEST" index="2" instance=ExtResource("6_5qmfw")]
+
+[node name="Human_Collision" parent="Freak One/CHEST" index="6" groups=["gHitbox"]]
 
 [node name="HumanChest" parent="Freak One/CHEST/Human_Collision" index="0"]
 material = SubResource("ShaderMaterial_1yau1")
@@ -697,9 +751,7 @@ material = SubResource("ShaderMaterial_1yau1")
 [node name="BirdChest" parent="Freak One/CHEST/Human_Collision" index="2"]
 material = SubResource("ShaderMaterial_x0t5e")
 
-[node name="Smoke Bomb" parent="Freak One/CHEST" index="2" instance=ExtResource("6_5qmfw")]
-
-[node name="QuillShooter" parent="Freak One/CHEST" index="4" groups=["gHitbox"]]
+[node name="QuillShooter" parent="Freak One/CHEST" index="8" groups=["gHitbox"]]
 
 [node name="Legs" parent="Freak One" index="1" groups=["gHitbox"]]
 
@@ -708,24 +760,24 @@ material = SubResource("ShaderMaterial_x0t5e")
 [node name="RooLegs" parent="Freak One/Legs/CollisionShape2D2" index="0"]
 material = SubResource("ShaderMaterial_6xsgj")
 
-[node name="AnimationPlayer" parent="Freak One/Legs/CollisionShape2D2" index="2"]
+[node name="AnimationPlayer" parent="Freak One/Legs/CollisionShape2D2" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_wyjjg")
 }
 
-[node name="CrabLegs" parent="Freak One/Legs/CollisionShape2D2" index="3"]
+[node name="CrabLegs" parent="Freak One/Legs/CollisionShape2D2" index="2"]
 material = SubResource("ShaderMaterial_4n76g")
 
-[node name="BullCharge" parent="Freak One/Legs/CollisionShape2D2" index="4"]
+[node name="BullCharge" parent="Freak One/Legs/CollisionShape2D2" index="3"]
 material = SubResource("ShaderMaterial_7su5t")
 
-[node name="BullChargeUp" parent="Freak One/Legs/CollisionShape2D2" index="5"]
+[node name="BullChargeUp" parent="Freak One/Legs/CollisionShape2D2" index="4"]
 material = SubResource("ShaderMaterial_haw63")
 
 [node name="Sprite2D" parent="Freak One/Legs/CollisionShape2D2/BullChargeUp" index="0"]
 material = SubResource("ShaderMaterial_haw63")
 
-[node name="BullChargeAttack" parent="Freak One/Legs/CollisionShape2D2" index="6" groups=["gHitbox"]]
+[node name="BullChargeAttack" parent="Freak One/Legs/CollisionShape2D2" index="5" groups=["gHitbox"]]
 
 [node name="Smoke Bomb" parent="Freak One/Legs" index="8" instance=ExtResource("6_5qmfw")]
 
@@ -810,6 +862,25 @@ hframes = 6
 vframes = 6
 frame = 35
 
+[node name="Controls L" type="TextEdit" parent="CanvasLayer"]
+offset_left = 76.0
+offset_top = 360.0
+offset_right = 304.0
+offset_bottom = 449.0
+text = "Heads: Q,W,E
+Chests: A,S,D
+Legs: Z,X,C"
+script = ExtResource("12_snu5r")
+
+[node name="Controls R" type="TextEdit" parent="CanvasLayer"]
+offset_left = 1628.0
+offset_top = 362.0
+offset_right = 1848.0
+offset_bottom = 462.0
+text = "Heads: O,P,{
+Chests: K,L,:
+Legs: M,<,>"
+
 [node name="TFloors" type="Node2D" parent="."]
 script = ExtResource("12_ryw08")
 
@@ -871,6 +942,10 @@ position = Vector2(135, -212)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TFloors/two/TempFloor4"]
 shape = SubResource("RectangleShape2D_3kg5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nhfww")
+texture = ExtResource("18_152xx")
 
 [connection signal="area_entered" from="Walls/Wall3" to="Walls/Wall3" method="_on_area_entered"]
 [connection signal="body_entered" from="Walls/Wall3" to="Walls/Wall3" method="_on_body_entered"]

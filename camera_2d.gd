@@ -38,6 +38,6 @@ func changeVis():
 		lerp(position, get_parent().get_node("Freak One2/CHEST").position, .5)
 		freak = 2
 	if get_parent().get_node("Freak One").dead == false:
-		lerp(position, get_parent().get_node("Freak One2/CHEST").position, .5)
+		lerp(position, get_parent().get_node("Freak One/CHEST").position, .5)
 		freak = 1
 	notDead = false

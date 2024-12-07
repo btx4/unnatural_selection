@@ -124,22 +124,26 @@ func _jump():
 	if(is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 		if is_in_group("gHitbox"):
-			if get_tree().get_nodes_in_group("eHitbox")[0].global_position.x < global_position.x:
-				velocity.x = -SPEED
+			if get_tree().get_nodes_in_group("eHitbox")[0].global_position.x < global_position.x: #if enemy is left
+				if velocity.x > -SPEED: #if speed is right
+					velocity.x = -SPEED #make speed left
 			else :
-				velocity.x = SPEED
+				if velocity.x < SPEED: #if speed is left
+					velocity.x = SPEED
 		else:
 			if get_tree().get_nodes_in_group("gHitbox")[0].global_position.x < global_position.x:
-				velocity.x = -SPEED
+				if velocity.x > -SPEED: #if speed is right
+					velocity.x = -SPEED #make speed left
 			else :
-				velocity.x = SPEED
+				if velocity.x < SPEED: #if speed is left
+					velocity.x = SPEED
 
 func hit(damage: int):
 	get_parent().currentHealth -= damage
 	$Hitflash.play("HF")
 	if(damage >10):
 		$Hit.play()
-		freezeFrame(0.03,1)
+		freezeFrame(0.03,.7)
 
 func freezeFrame(timescale, duration):
 	Engine.time_scale = timescale

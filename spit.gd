@@ -20,20 +20,30 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if source == 0:
 		if body.is_in_group("eHitbox"):
-			$Blood.emitting = true	
-			body.hit(3)
-			$AnimationPlayer.play("hit")
-			$Sprite2D.queue_free()
-			$CollisionShape2D.queue_free()
-			print(body)
+			if body.get_parent().get_node("CHEST").chest_type != 0:
+				$Blood.emitting = true
+				body.hit(3)
+				$AnimationPlayer.play("hit")
+				$Sprite2D.queue_free()
+				$CollisionShape2D.queue_free()
+				print(body)
+			else:
+				velocity = -velocity
+				velocity *=2
+				source = 1
 	else:
 		if body.is_in_group("gHitbox"):
-			$Blood.emitting = true
-			body.hit(3)
-			$AnimationPlayer.play("hit")
-			$Sprite2D.queue_free()
-			$CollisionShape2D.queue_free()
-			print(body)
+			if body.get_parent().get_node("CHEST").chest_type != 0:
+				$Blood.emitting = true
+				body.hit(3)
+				$AnimationPlayer.play("hit")
+				$Sprite2D.queue_free()
+				$CollisionShape2D.queue_free()
+				print(body)
+			else:
+				velocity = -velocity
+				velocity *=2
+				source = 0
 	pass # Replace with function body.
 
 

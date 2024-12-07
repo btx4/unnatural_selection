@@ -32,6 +32,7 @@ func die():
 	$CHEST/PinJoint2D.queue_free()
 	$Legs/CollisionShape2D2/AnimationPlayer.stop()
 	$Head/CollisionShape2D2/AnimationPlayer.stop()
+	$CHEST/Human_Collision/AnimationPlayer.stop()
 	$CHEST.gravity_scale = 1
 	$Head.gravity_scale = 1
 	get_parent().get_node("Camera2D").changeVis()

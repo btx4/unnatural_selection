@@ -8,10 +8,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	position.x = get_parent().get_node("Legs").position.x
 	pass
 	
 func blast():
-	position.x = get_parent().get_node("Legs").position.x
 	$BFL.blast()
 	$BL.blast()
 	$BFR.blast()

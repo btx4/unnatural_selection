@@ -1,0 +1,497 @@
+[gd_scene load_steps=5 format=3 uid="uid://dampflmdgtbd6"]
+
+[ext_resource type="Texture2D" uid="uid://gv1fcw1sp5f0" path="res://Stadium.png" id="1_afc68"]
+[ext_resource type="Texture2D" uid="uid://bjo11nbnvrnai" path="res://New Piskel (17).png" id="2_bmdek"]
+[ext_resource type="Script" path="res://guy.gd" id="3_8al6j"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_853bw"]
+
+[node name="StadiumBackground" type="Node2D"]
+position = Vector2(0, 294)
+
+[node name="Stadium2" type="Sprite2D" parent="."]
+position = Vector2(-127, -124)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("1_afc68")
+
+[node name="Crowds61" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-412, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds62" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-332, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds63" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-252, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds64" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-172, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds65" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-92, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds66" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-12, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds67" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(68, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds68" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(148, -116)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-452, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds2" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-372, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds3" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-292, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds4" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-212, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds5" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-132, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds6" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-52, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds7" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(28, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds9" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(108, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds10" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(188, -54)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds8" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-412, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds11" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-332, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds12" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-252, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds13" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-172, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds14" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-92, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds15" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-12, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds16" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(68, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds17" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(148, 10)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds18" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-452, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds19" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-372, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds20" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-292, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds21" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-212, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds22" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-132, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds23" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-52, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds24" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(28, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds25" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(108, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds26" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(188, 82)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds27" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-412, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds28" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-332, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds29" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-252, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds30" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-172, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds31" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-92, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds32" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-12, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds33" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(68, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds34" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(148, 146)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds35" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-452, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds36" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-372, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds37" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-292, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds38" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-212, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds39" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-132, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds40" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-52, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds41" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(28, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds42" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(108, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds43" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(188, 218)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds44" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-412, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds45" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-332, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds46" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-252, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds47" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-172, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds48" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-92, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds49" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-12, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds50" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(68, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds51" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(148, 282)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds52" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-452, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds53" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-372, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds54" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-292, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds55" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-212, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds56" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-132, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds57" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-52, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds58" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(28, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds59" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(108, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds60" type="Sprite2D" parent="."]
+self_modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(188, 354)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_bmdek")
+script = ExtResource("3_8al6j")
+
+[node name="FWall" type="Sprite2D" parent="."]
+modulate = Color(0.475197, 0.468312, 0.468311, 1)
+position = Vector2(-127, 949.551)
+scale = Vector2(1436, 1106.9)
+texture = SubResource("CanvasTexture_853bw")

@@ -1,0 +1,391 @@
+[gd_scene load_steps=4 format=3 uid="uid://dampflmdgtbd6"]
+
+[ext_resource type="Texture2D" uid="uid://gv1fcw1sp5f0" path="res://Stadium.png" id="1_afc68"]
+[ext_resource type="Texture2D" uid="uid://bevvbm6yenomy" path="res://blood.png" id="2_0lbx2"]
+[ext_resource type="Script" path="res://guy.gd" id="3_8al6j"]
+
+[node name="StadiumBackground" type="Node2D"]
+position = Vector2(0, 294)
+
+[node name="Stadium2" type="Sprite2D" parent="."]
+position = Vector2(-127, -124)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("1_afc68")
+
+[node name="Crowds" type="Sprite2D" parent="."]
+position = Vector2(-460, -134)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds2" type="Sprite2D" parent="."]
+position = Vector2(-84, -138)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds3" type="Sprite2D" parent="."]
+position = Vector2(-173, -135)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds4" type="Sprite2D" parent="."]
+position = Vector2(-274, -138)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds5" type="Sprite2D" parent="."]
+position = Vector2(-373, -138)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds6" type="Sprite2D" parent="."]
+position = Vector2(-415.25, -86)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds7" type="Sprite2D" parent="."]
+position = Vector2(-39.25, -90)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds8" type="Sprite2D" parent="."]
+position = Vector2(-128.25, -87)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds9" type="Sprite2D" parent="."]
+position = Vector2(-229.25, -90)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds10" type="Sprite2D" parent="."]
+position = Vector2(-328.25, -90)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds11" type="Sprite2D" parent="."]
+position = Vector2(-460.25, -12)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds12" type="Sprite2D" parent="."]
+position = Vector2(-84.25, -16)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds13" type="Sprite2D" parent="."]
+position = Vector2(-173.25, -13)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds14" type="Sprite2D" parent="."]
+position = Vector2(-274.25, -16)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds15" type="Sprite2D" parent="."]
+position = Vector2(-373.25, -16)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds16" type="Sprite2D" parent="."]
+position = Vector2(-415.5, 36)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds17" type="Sprite2D" parent="."]
+position = Vector2(-39.5, 32)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds18" type="Sprite2D" parent="."]
+position = Vector2(-128.5, 35)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds19" type="Sprite2D" parent="."]
+position = Vector2(-229.5, 32)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds20" type="Sprite2D" parent="."]
+position = Vector2(-328.5, 32)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds21" type="Sprite2D" parent="."]
+position = Vector2(-460, 110)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds22" type="Sprite2D" parent="."]
+position = Vector2(-84, 106)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds23" type="Sprite2D" parent="."]
+position = Vector2(-173, 109)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds24" type="Sprite2D" parent="."]
+position = Vector2(-274, 106)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds25" type="Sprite2D" parent="."]
+position = Vector2(-373, 106)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds26" type="Sprite2D" parent="."]
+position = Vector2(-415.25, 158)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds27" type="Sprite2D" parent="."]
+position = Vector2(-39.25, 154)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds28" type="Sprite2D" parent="."]
+position = Vector2(-128.25, 157)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds29" type="Sprite2D" parent="."]
+position = Vector2(-229.25, 154)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds30" type="Sprite2D" parent="."]
+position = Vector2(-328.25, 154)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds31" type="Sprite2D" parent="."]
+position = Vector2(-460.25, 232)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds32" type="Sprite2D" parent="."]
+position = Vector2(-84.25, 228)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds33" type="Sprite2D" parent="."]
+position = Vector2(-173.25, 231)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds34" type="Sprite2D" parent="."]
+position = Vector2(-274.25, 228)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds35" type="Sprite2D" parent="."]
+position = Vector2(-373.25, 228)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds36" type="Sprite2D" parent="."]
+position = Vector2(-415.5, 280)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds37" type="Sprite2D" parent="."]
+position = Vector2(-39.5, 276)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds38" type="Sprite2D" parent="."]
+position = Vector2(-128.5, 279)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds39" type="Sprite2D" parent="."]
+position = Vector2(-229.5, 276)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds40" type="Sprite2D" parent="."]
+position = Vector2(-328.5, 276)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds41" type="Sprite2D" parent="."]
+position = Vector2(-460.25, 328)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds42" type="Sprite2D" parent="."]
+position = Vector2(-84.25, 324)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds43" type="Sprite2D" parent="."]
+position = Vector2(-173.25, 327)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds44" type="Sprite2D" parent="."]
+position = Vector2(-274.25, 324)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds45" type="Sprite2D" parent="."]
+position = Vector2(-373.25, 324)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds46" type="Sprite2D" parent="."]
+position = Vector2(113, -138)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds47" type="Sprite2D" parent="."]
+position = Vector2(24, -135)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds48" type="Sprite2D" parent="."]
+position = Vector2(157.75, -90)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds49" type="Sprite2D" parent="."]
+position = Vector2(68.75, -87)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds50" type="Sprite2D" parent="."]
+position = Vector2(112.75, -16)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds51" type="Sprite2D" parent="."]
+position = Vector2(23.75, -13)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds52" type="Sprite2D" parent="."]
+position = Vector2(157.5, 32)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds53" type="Sprite2D" parent="."]
+position = Vector2(68.5, 35)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds54" type="Sprite2D" parent="."]
+position = Vector2(-84, 106)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds55" type="Sprite2D" parent="."]
+position = Vector2(24, 109)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds56" type="Sprite2D" parent="."]
+position = Vector2(157.75, 154)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds57" type="Sprite2D" parent="."]
+position = Vector2(68.75, 157)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds58" type="Sprite2D" parent="."]
+position = Vector2(112.75, 228)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds59" type="Sprite2D" parent="."]
+position = Vector2(23.75, 231)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds60" type="Sprite2D" parent="."]
+position = Vector2(157.5, 276)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds61" type="Sprite2D" parent="."]
+position = Vector2(68.5, 279)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds62" type="Sprite2D" parent="."]
+position = Vector2(112.75, 324)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")
+
+[node name="Crowds63" type="Sprite2D" parent="."]
+position = Vector2(23.75, 327)
+scale = Vector2(12.7, 24.4)
+texture = ExtResource("2_0lbx2")
+script = ExtResource("3_8al6j")

@@ -47,21 +47,22 @@ func _input(event: InputEvent) -> void:
 		elif event.is_action_pressed("eChestThree"):
 			chest_type = 2
 	if chest_type == 0 and chest_type != pchest_type:
-		$Human_Collision/HumanChest.visible = true
 		$Human_Collision/AnimationPlayer.stop()
 		$Human_Collision/PorcupineChest.visible = false
 		$Human_Collision/BirdChest.visible = false
+		$Human_Collision/TurtleChest.visible = true
+		$Human_Collision/AnimationPlayer.play("turtle")
 		maxFlaps = 10
 	elif chest_type == 1 and chest_type != pchest_type:
-		$Human_Collision/HumanChest.visible = false
 		$Human_Collision/BirdChest.visible = true
 		$Human_Collision/PorcupineChest.visible = false
+		$Human_Collision/TurtleChest.visible = false
 		$Human_Collision/AnimationPlayer.play("birdFlap")
 		maxFlaps = 10
 	elif chest_type == 2 and chest_type != pchest_type:
-		$Human_Collision/HumanChest.visible = false
 		$Human_Collision/AnimationPlayer.stop()
 		$Human_Collision/PorcupineChest.visible = true
+		$Human_Collision/TurtleChest.visible = false
 		$Human_Collision/BirdChest.visible = false
 		$Human_Collision/AnimationPlayer.play("porcupine")
 		maxFlaps = 10

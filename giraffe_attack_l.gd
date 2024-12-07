@@ -14,13 +14,13 @@ func attack():
 		if is_in_group("eHitbox"):
 			print("ENEMYATTACKHit")
 			if body.is_in_group("gHitbox"):
-				body.hit(20)
+				body.hit(12)
 				body.knockback(0)
 				break
 		elif is_in_group("gHitbox"):
 			print("GOODGUYATTACKHIT")
 			if body.is_in_group("eHitbox"):
-				body.hit(20)
+				body.hit(12)
 				body.knockback(0)
 				break
 			
