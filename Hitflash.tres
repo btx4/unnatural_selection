@@ -62,13 +62,13 @@ void fragment() {
 "
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(420, 260)
+nodes/fragment/0/position = Vector2(247, 646)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_kcv5c")
-nodes/fragment/2/position = Vector2(-420, 340)
+nodes/fragment/2/position = Vector2(-418, 342)
 nodes/fragment/3/node = SubResource("VisualShaderNodeBooleanParameter_vxvdg")
-nodes/fragment/3/position = Vector2(-340, 40)
+nodes/fragment/3/position = Vector2(-418, 646)
 nodes/fragment/4/node = SubResource("VisualShaderNodeIf_amww3")
-nodes/fragment/4/position = Vector2(-40, 100)
+nodes/fragment/4/position = Vector2(-19, 646)
 nodes/fragment/5/node = SubResource("VisualShaderNodeInput_c48ef")
-nodes/fragment/5/position = Vector2(-700, 220)
+nodes/fragment/5/position = Vector2(-418, 912)
 nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 0, 5, 0, 4, 4, 5, 0, 4, 5)

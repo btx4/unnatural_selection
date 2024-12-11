@@ -2,7 +2,7 @@ extends Sprite2D
 
 var base_y: float = 0.0 # The original Y position
 var amplitude: float = 20.0 # How far it bobs up and down
-var speed: float = 2.0 # How fast it bobs
+var speed: float = 10.0 # How fast it bobs
 var time: float = 0.0 # Keeps track of the elapsed time
 
 func _ready() -> void:

@@ -17,5 +17,6 @@ func _on_body_entered(body: Node2D) -> void:
 	print("OOGA")
 	if body.is_in_group("legs"):
 		body.velocity.x = -body.velocity.x
+		body.velocity.y = -100
 	pass # Replace with function body.
 	

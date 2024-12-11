@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://f1g5usan2pfl"]
+[gd_scene load_steps=81 format=3 uid="uid://f1g5usan2pfl"]
 
 [ext_resource type="Script" path="res://freak_one.gd" id="1_edlgb"]
 [ext_resource type="Script" path="res://rigid_body_2d.gd" id="2_fq7x5"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://head.gd" id="14_3sjtw"]
 [ext_resource type="Script" path="res://geysers.gd" id="15_8v62g"]
 [ext_resource type="Texture2D" uid="uid://bv1bl1aawwmp7" path="res://Alpaca_Sput.png" id="15_82yrn"]
+[ext_resource type="Shader" path="res://hf2.gdshader" id="15_p2ljl"]
 [ext_resource type="AudioStream" uid="uid://l83jlrqtl1hv" path="res://HitOne.mp3" id="16_jige2"]
 [ext_resource type="Texture2D" uid="uid://bxiroqh1afxij" path="res://GiraffeCentered.png" id="16_vl83o"]
 [ext_resource type="Texture2D" uid="uid://n5nurjwhrlvp" path="res://PlayerIcons.png" id="17_3made"]
@@ -33,7 +34,9 @@
 [ext_resource type="Script" path="res://blast_middle.gd" id="23_1qw8j"]
 [ext_resource type="Script" path="res://geyser_blast.gd" id="23_24uqc"]
 [ext_resource type="Texture2D" uid="uid://1pf617bbky3p" path="res://New Piskel (10).png" id="24_0vkm5"]
+[ext_resource type="Texture2D" uid="uid://bjo11nbnvrnai" path="res://New Piskel (17).png" id="24_ma5dc"]
 [ext_resource type="Script" path="res://bfl.gd" id="25_4bnad"]
+[ext_resource type="Script" path="res://shadow.gd" id="25_5hie5"]
 [ext_resource type="Script" path="res://bl.gd" id="26_gf1ri"]
 [ext_resource type="Script" path="res://bfr.gd" id="27_rucd6"]
 [ext_resource type="AudioStream" uid="uid://hj2tu32lll6g" path="res://Geyser.mp3" id="28_2pr0v"]
@@ -271,7 +274,12 @@ shader_parameter/Tint = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kytp6"]
 resource_local_to_scene = true
-shader = ExtResource("3_27ono")
+shader = ExtResource("15_p2ljl")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 shader_parameter/Enabled = true
 shader_parameter/Tint = Color(1, 1, 1, 1)
 
@@ -872,6 +880,7 @@ libraries = {
 }
 
 [node name="BirdChest" type="Sprite2D" parent="CHEST/Human_Collision"]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_707m6")
 scale = Vector2(3.126, 2.861)
@@ -880,6 +889,7 @@ hframes = 2
 vframes = 4
 
 [node name="PorcupineChest" type="Sprite2D" parent="CHEST/Human_Collision"]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_37og5")
 scale = Vector2(3.126, 2.861)
@@ -920,6 +930,13 @@ autoplay = "Stitch"
 position = Vector2(0, 57)
 script = ExtResource("4_n6doh")
 
+[node name="Shadow" type="Sprite2D" parent="Legs"]
+modulate = Color(0.207843, 0.207843, 0.207843, 0.439216)
+position = Vector2(-47, 47)
+scale = Vector2(38, 4.1)
+texture = ExtResource("24_ma5dc")
+script = ExtResource("25_5hie5")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Legs"]
 position = Vector2(1, 6.5)
 shape = SubResource("RectangleShape2D_fu0ed")
@@ -946,6 +963,7 @@ hframes = 2
 vframes = 6
 
 [node name="BullCharge" type="Sprite2D" parent="Legs/CollisionShape2D2"]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_y1idn")
 position = Vector2(0, -3)
@@ -1074,6 +1092,7 @@ scale = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_5lpkr")
 
 [node name="OrcaHead" type="Sprite2D" parent="Head/CollisionShape2D2"]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_kytp6")
 position = Vector2(4, -78)
@@ -1197,12 +1216,6 @@ script = ExtResource("23_24uqc")
 [node name="GeyserShape" type="CollisionShape2D" parent="geysers/BFL/GeyserBlast"]
 position = Vector2(5, -154.5)
 shape = SubResource("RectangleShape2D_3asm1")
-
-[node name="ColorRect" type="ColorRect" parent="geysers/BFL"]
-offset_left = -21.0
-offset_top = -22.0
-offset_right = 19.0
-offset_bottom = 18.0
 
 [node name="BL" type="Node2D" parent="geysers"]
 position = Vector2(-136, 24)

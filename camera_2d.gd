@@ -9,7 +9,9 @@ extends Camera2D
 @export var zoom_speed = 5         # Speed of zoom transition
 var notDead = true
 var freak
-
+func _ready() -> void:
+	$Music.play(Progress.musicProgress)
+		
 func _process(delta):
 	# Get positions
 	if(notDead):
@@ -41,3 +43,4 @@ func changeVis():
 		lerp(position, get_parent().get_node("Freak One/CHEST").position, .5)
 		freak = 1
 	notDead = false
+	$"Restart Timer".start()

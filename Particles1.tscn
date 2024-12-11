@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvwj5vatp4vn5"]
 
-[ext_resource type="Texture2D" uid="uid://1pf617bbky3p" path="res://New Piskel (10).png" id="1_yqaru"]
+[ext_resource type="Texture2D" uid="uid://ca5chnncvve6u" path="res://New Piskel.png" id="1_5sqea"]
 
 [sub_resource type="Curve" id="Curve_i54sc"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.579832, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.128135), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.032967), 0.0, 0.0, 0, 0, Vector2(0.416667, 0.725275), 0.0, 0.0, 0, 0, Vector2(0.614583, 0.054945), 0.0, 0.0, 0, 0, Vector2(0.833333, 0.725275), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_e5mh4"]
 curve = SubResource("Curve_i54sc")
@@ -25,4 +25,4 @@ color = Color(0.880149, 0.395089, 0.826116, 1)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_q7ajc")
-texture = ExtResource("1_yqaru")
+texture = ExtResource("1_5sqea")

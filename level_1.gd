@@ -32,3 +32,10 @@ func _process(delta: float) -> void:
 		# Reset position after shaking
 		position = original_position
 		set_process(false)  # Stop shaking once timer ends
+
+
+func _on_restart_timer_timeout() -> void:
+	Progress.musicProgress = $Camera2D/Music.get_playback_position() 
+	get_tree().reload_current_scene()
+	
+	pass # Replace with function body.

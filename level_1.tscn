@@ -1,9 +1,12 @@
 [gd_scene load_steps=49 format=3 uid="uid://dmo7x0f38w0m2"]
 
-[ext_resource type="Script" path="res://level_1.gd" id="1_ehaop"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_p564q"]
 [ext_resource type="PackedScene" uid="uid://dampflmdgtbd6" path="res://stadium_background.tscn" id="2_7kw2n"]
+[ext_resource type="PackedScene" uid="uid://dmgi7fdggjpf3" path="res://Cloud_Spawner.tscn" id="2_afl78"]
 [ext_resource type="Script" path="res://Bouncy Wall.gd" id="2_mk8gn"]
 [ext_resource type="Script" path="res://deathbox.gd" id="2_wiguw"]
+[ext_resource type="Texture2D" uid="uid://csogw1f33bqpr" path="res://Stadium (1).png" id="3_d4u0c"]
+[ext_resource type="PackedScene" uid="uid://bbp64o6isbpb" path="res://stadium_wall.tscn" id="4_bs0w5"]
 [ext_resource type="PackedScene" uid="uid://f1g5usan2pfl" path="res://Freak.tscn" id="4_taioj"]
 [ext_resource type="PackedScene" uid="uid://dt0c8w6cr7ep3" path="res://smoke_bomb.tscn" id="6_5qmfw"]
 [ext_resource type="Shader" uid="uid://b7lj173xuhrj1" path="res://Hitflash.tres" id="6_ju35c"]
@@ -11,21 +14,17 @@
 [ext_resource type="Script" path="res://one.gd" id="12_08jki"]
 [ext_resource type="Script" path="res://t_floors.gd" id="12_ryw08"]
 [ext_resource type="Script" path="res://controls_l.gd" id="12_snu5r"]
+[ext_resource type="AudioStream" uid="uid://u6bq0k8muin1" path="res://Fight Or Flight - 8 Bit Battle Rock - RPG Game Music By HeatleyBros.mp3" id="13_h3jlb"]
 [ext_resource type="Script" path="res://two.gd" id="14_xhhp3"]
 [ext_resource type="Script" path="res://health_bar_right.gd" id="16_8qbce"]
 [ext_resource type="Script" path="res://control.gd" id="16_80np6"]
-[ext_resource type="Shader" uid="uid://cl486vbglht25" path="res://iconshader.tres" id="17_j52jk"]
-[ext_resource type="Texture2D" uid="uid://dnpj25fs3r542" path="res://icon.svg" id="18_152xx"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="21_btocb"]
 [ext_resource type="PackedScene" uid="uid://1coxk6var58w" path="res://grasses.tscn" id="22_4xxe7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yr3b"]
-size = Vector2(1473, 20192)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_bgtuq"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_wa8a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rujvs"]
-size = Vector2(4335, 935.5)
+size = Vector2(6188, 935.5)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_epv3n"]
 
@@ -566,14 +565,20 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kg5k"]
 size = Vector2(436, 66)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhfww"]
-shader = ExtResource("17_j52jk")
-
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ehaop")
+script = ExtResource("1_p564q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.6, 1, 1, 1)
+position = Vector2(526, -2188)
+scale = Vector2(29584.5, 20820.9)
+texture = SubResource("CanvasTexture_wa8a1")
+
+[node name="CloudSpawn" parent="." instance=ExtResource("2_afl78")]
+position = Vector2(-2064, -1021)
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2(0, -624)
+position = Vector2(0, -424)
 
 [node name="StadiumBackground" parent="Background" instance=ExtResource("2_7kw2n")]
 
@@ -589,49 +594,85 @@ position = Vector2(2790, 294)
 [node name="StadiumBackground5" parent="Background" instance=ExtResource("2_7kw2n")]
 position = Vector2(-930, 294)
 
+[node name="StadiumBackground6" parent="Background" instance=ExtResource("2_7kw2n")]
+position = Vector2(-1860, 294)
+
+[node name="StadiumBackground7" parent="Background" instance=ExtResource("2_7kw2n")]
+position = Vector2(3720, 294)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(-133, 238)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("3_d4u0c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(-1063, 238)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("3_d4u0c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+position = Vector2(797, 238)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("3_d4u0c")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+position = Vector2(1727, 238)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("3_d4u0c")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+position = Vector2(2657, 238)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("3_d4u0c")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background"]
+position = Vector2(-1993, 238)
+scale = Vector2(3.59, 3.59)
+texture = ExtResource("3_d4u0c")
+
+[node name="Stadium(2)3" parent="Background" instance=ExtResource("4_bs0w5")]
+position = Vector2(-2307, 228)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Stadium(2)2" parent="Background" instance=ExtResource("4_bs0w5")]
+position = Vector2(3492, 229)
+
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 position = Vector2(228, -543)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
-position = Vector2(-2555, -8070)
-shape = SubResource("RectangleShape2D_5yr3b")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D2"]
+position = Vector2(-1816, 1066)
+polygon = PackedVector2Array(-1, -198, -1, -3, -1118, -1, -3462, -824, -3458, -4486, -882, -5646, -879, -771)
 
 [node name="Wall3" type="Area2D" parent="Walls" groups=["Wall"]]
 position = Vector2(-329, 228)
 script = ExtResource("2_mk8gn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall3"]
-modulate = Color(0.392819, 0.111741, 0.25144, 1)
-position = Vector2(-1970, -1204)
-scale = Vector2(1454, 4878)
-texture = SubResource("CanvasTexture_bgtuq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
-position = Vector2(-1939, -8851)
-shape = SubResource("RectangleShape2D_5yr3b")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall3"]
+position = Vector2(-1229, 269)
+polygon = PackedVector2Array(-1, -198, -1, -3, -1118, -1, -3462, -824, -3458, -4486, -882, -5646, -879, -771)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
 position = Vector2(6070, -654)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
-position = Vector2(-2555, -8070)
-shape = SubResource("RectangleShape2D_5yr3b")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+position = Vector2(-3296, 1179)
+rotation = 3.14159
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(-1, -198, -1, -3, -1118, -1, -3462, -824, -3458, -4486, -882, -5646, -879, -771)
 
 [node name="Wall2" type="Area2D" parent="Walls" groups=["Wall"]]
 position = Vector2(5409, 117)
 script = ExtResource("2_mk8gn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall2"]
-modulate = Color(0.392819, 0.111741, 0.25144, 1)
-position = Vector2(-1898, -1204)
-scale = Vector2(1454, 4878)
-texture = SubResource("CanvasTexture_bgtuq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
-position = Vector2(-1939, -8851)
-shape = SubResource("RectangleShape2D_5yr3b")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall2"]
+position = Vector2(-2680, 371)
+rotation = 3.14159
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(-1, -198, -1, -3, -1118, -1, -3462, -824, -3458, -4486, -882, -5646, -879, -771)
 
 [node name="Floor" type="StaticBody2D" parent="Walls" groups=["Wall"]]
 position = Vector2(577, 632)
@@ -642,8 +683,8 @@ shape = SubResource("RectangleShape2D_rujvs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Floor"]
 modulate = Color(0.717945, 0.630884, 0.299984, 1)
-position = Vector2(29.0001, 901.5)
-scale = Vector2(6602, 2021)
+position = Vector2(29.0001, 3740.5)
+scale = Vector2(14822, 7699)
 texture = SubResource("CanvasTexture_epv3n")
 
 [node name="deathbox" type="Area2D" parent="Walls"]
@@ -676,7 +717,7 @@ material = SubResource("ShaderMaterial_m0acj")
 
 [node name="Legs" parent="Freak One2" index="1" groups=["eHitbox"]]
 
-[node name="CollisionShape2D2" parent="Freak One2/Legs" index="0" groups=["eHitbox"]]
+[node name="CollisionShape2D2" parent="Freak One2/Legs" index="1" groups=["eHitbox"]]
 
 [node name="RooLegs" parent="Freak One2/Legs/CollisionShape2D2" index="0"]
 material = SubResource("ShaderMaterial_e6dg4")
@@ -700,11 +741,11 @@ material = SubResource("ShaderMaterial_utfwr")
 
 [node name="BullChargeAttack" parent="Freak One2/Legs/CollisionShape2D2" index="5" groups=["eHitbox"]]
 
-[node name="Sprite2D" parent="Freak One2/Legs" index="7"]
+[node name="Smoke Bomb" parent="Freak One2/Legs" index="8" instance=ExtResource("6_5qmfw")]
+
+[node name="Sprite2D" parent="Freak One2/Legs" index="9"]
 position = Vector2(-11, -334)
 frame = 1
-
-[node name="Smoke Bomb" parent="Freak One2/Legs" index="8" instance=ExtResource("6_5qmfw")]
 
 [node name="Head" parent="Freak One2" index="2" groups=["eHitbox"]]
 
@@ -755,7 +796,7 @@ material = SubResource("ShaderMaterial_x0t5e")
 
 [node name="Legs" parent="Freak One" index="1" groups=["gHitbox"]]
 
-[node name="CollisionShape2D2" parent="Freak One/Legs" index="0" groups=["gHitbox"]]
+[node name="CollisionShape2D2" parent="Freak One/Legs" index="1" groups=["gHitbox"]]
 
 [node name="RooLegs" parent="Freak One/Legs/CollisionShape2D2" index="0"]
 material = SubResource("ShaderMaterial_6xsgj")
@@ -814,18 +855,18 @@ position = Vector2(121, 289)
 zoom = Vector2(0.7, 0.7)
 script = ExtResource("21_btocb")
 
+[node name="Restart Timer" type="Timer" parent="Camera2D"]
+wait_time = 8.0
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("13_h3jlb")
+
 [node name="Floor2" type="StaticBody2D" parent="."]
 position = Vector2(566, -4131)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
 position = Vector2(-1, 218.75)
 shape = SubResource("RectangleShape2D_rujvs")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
-modulate = Color(0.0911101, 0.463288, 0, 1)
-position = Vector2(-0.25, -77.75)
-scale = Vector2(4404.5, 62.5)
-texture = SubResource("CanvasTexture_epv3n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -943,15 +984,12 @@ position = Vector2(135, -212)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TFloors/two/TempFloor4"]
 shape = SubResource("RectangleShape2D_3kg5k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_nhfww")
-texture = ExtResource("18_152xx")
-
 [connection signal="area_entered" from="Walls/Wall3" to="Walls/Wall3" method="_on_area_entered"]
 [connection signal="body_entered" from="Walls/Wall3" to="Walls/Wall3" method="_on_body_entered"]
 [connection signal="area_entered" from="Walls/Wall2" to="Walls/Wall2" method="_on_area_entered"]
 [connection signal="body_entered" from="Walls/Wall2" to="Walls/Wall2" method="_on_body_entered"]
 [connection signal="body_entered" from="Walls/deathbox" to="Walls/deathbox" method="_on_body_entered"]
+[connection signal="timeout" from="Camera2D/Restart Timer" to="." method="_on_restart_timer_timeout"]
 
 [editable path="Freak One2"]
 [editable path="Freak One"]

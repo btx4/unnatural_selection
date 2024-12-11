@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u6bq0k8muin1"
+path="res://.godot/imported/Fight Or Flight - 8 Bit Battle Rock - RPG Game Music By HeatleyBros.mp3-f7957e203f1292efec01245b7042ad36.mp3str"
+
+[deps]
+
+source_file="res://Fight Or Flight - 8 Bit Battle Rock - RPG Game Music By HeatleyBros.mp3"
+dest_files=["res://.godot/imported/Fight Or Flight - 8 Bit Battle Rock - RPG Game Music By HeatleyBros.mp3-f7957e203f1292efec01245b7042ad36.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

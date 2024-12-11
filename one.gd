@@ -11,5 +11,14 @@ func _process(delta: float) -> void:
 	pass
 
 func destroy():
-	for child in get_children():
-		child.queue_free()
+	$TempFloor/CollisionShape2D.disabled = true
+	$TempFloor2/CollisionShape2D.disabled = true
+	$TempFloor3/CollisionShape2D.disabled = true
+	$TempFloor4/CollisionShape2D.disabled = true
+	
+
+func rebuild():
+	$TempFloor/CollisionShape2D.disabled = false
+	$TempFloor2/CollisionShape2D.disabled = false
+	$TempFloor3/CollisionShape2D.disabled = false
+	$TempFloor4/CollisionShape2D.disabled = false
